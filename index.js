@@ -1,28 +1,21 @@
-const { datePairFromConfig } = require("./lib/dates");
 const { appendRows } = require("./lib/store");
 const { buildSummaries } = require("./lib/summary");
+const { sendSummaryEmails } = require("./lib/email");
 
 const routes = require("./config/routes.json");
-const searchDates = require("./config/searchDates.json");
 
 const SCRAPERS = {
   gol: () => require("./scrapers/gol"),
   // aerolineas, latam, 123milhas, maxmilhas, despegar, googleflights: pendientes (ver README)
 };
 
+// Both trip types scan every day of the target months (the calendar already
+// returns full months in one request); roundtrip pairs each day with a fixed
+// stayNights so coverage stays complete without exploding date combinations.
 function buildRoutePlan() {
   const bySite = {};
   for (const route of routes) {
     const tripType = route.tripType || "roundtrip";
-    const datePairs =
-      tripType === "roundtrip"
-        ? route.months.flatMap((month) =>
-            (searchDates[month] || []).map(({ departDay, nights }) => {
-              const pair = datePairFromConfig(month, departDay, nights);
-              return { departISO: pair.departISO, returnISO: pair.returnISO };
-            })
-          )
-        : [];
     for (const site of route.sites) {
       if (!SCRAPERS[site]) continue; // scraper not implemented yet
       bySite[site] = bySite[site] || [];
@@ -32,7 +25,7 @@ function buildRoutePlan() {
         destination: route.destination,
         tripType,
         months: route.months,
-        datePairs,
+        stayNights: route.stayNights,
       });
     }
   }
@@ -64,6 +57,12 @@ async function main() {
 
   buildSummaries();
   console.log("Regenerados data/resumen-pablo.csv y data/resumen-david.csv");
+
+  try {
+    await sendSummaryEmails();
+  } catch (err) {
+    console.error("Error enviando emails:", err.message);
+  }
 }
 
 main().catch((err) => {

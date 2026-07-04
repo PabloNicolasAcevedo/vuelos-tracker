@@ -6,8 +6,12 @@
     "tripType": "oneway",
     "origin": "EZE",
     "destination": "GYN",
-    "months": ["2026-10"],
-    "sites": ["gol"]
+    "months": [
+      "2026-10"
+    ],
+    "sites": [
+      "gol"
+    ]
   },
   {
     "id": "oct-eze-bsb",
@@ -16,8 +20,12 @@
     "tripType": "oneway",
     "origin": "EZE",
     "destination": "BSB",
-    "months": ["2026-10"],
-    "sites": ["gol"]
+    "months": [
+      "2026-10"
+    ],
+    "sites": [
+      "gol"
+    ]
   },
   {
     "id": "oct-aep-gyn",
@@ -26,8 +34,12 @@
     "tripType": "oneway",
     "origin": "AEP",
     "destination": "GYN",
-    "months": ["2026-10"],
-    "sites": ["gol"]
+    "months": [
+      "2026-10"
+    ],
+    "sites": [
+      "gol"
+    ]
   },
   {
     "id": "oct-aep-bsb",
@@ -36,8 +48,12 @@
     "tripType": "oneway",
     "origin": "AEP",
     "destination": "BSB",
-    "months": ["2026-10"],
-    "sites": ["gol"]
+    "months": [
+      "2026-10"
+    ],
+    "sites": [
+      "gol"
+    ]
   },
   {
     "id": "bue-gyn",
@@ -46,8 +62,21 @@
     "tripType": "roundtrip",
     "origin": "EZE",
     "destination": "GYN",
-    "months": ["2026-12", "2027-01", "2027-02"],
-    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
+    "months": [
+      "2026-12",
+      "2027-01",
+      "2027-02"
+    ],
+    "sites": [
+      "gol",
+      "aerolineas",
+      "latam",
+      "123milhas",
+      "maxmilhas",
+      "despegar",
+      "googleflights"
+    ],
+    "stayNights": 10
   },
   {
     "id": "bue-bsb",
@@ -56,8 +85,21 @@
     "tripType": "roundtrip",
     "origin": "EZE",
     "destination": "BSB",
-    "months": ["2026-12", "2027-01", "2027-02"],
-    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
+    "months": [
+      "2026-12",
+      "2027-01",
+      "2027-02"
+    ],
+    "sites": [
+      "gol",
+      "aerolineas",
+      "latam",
+      "123milhas",
+      "maxmilhas",
+      "despegar",
+      "googleflights"
+    ],
+    "stayNights": 10
   },
   {
     "id": "bue-aep-gyn",
@@ -66,8 +108,21 @@
     "tripType": "roundtrip",
     "origin": "AEP",
     "destination": "GYN",
-    "months": ["2026-12", "2027-01", "2027-02"],
-    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
+    "months": [
+      "2026-12",
+      "2027-01",
+      "2027-02"
+    ],
+    "sites": [
+      "gol",
+      "aerolineas",
+      "latam",
+      "123milhas",
+      "maxmilhas",
+      "despegar",
+      "googleflights"
+    ],
+    "stayNights": 10
   },
   {
     "id": "bue-aep-bsb",
@@ -76,8 +131,21 @@
     "tripType": "roundtrip",
     "origin": "AEP",
     "destination": "BSB",
-    "months": ["2026-12", "2027-01", "2027-02"],
-    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
+    "months": [
+      "2026-12",
+      "2027-01",
+      "2027-02"
+    ],
+    "sites": [
+      "gol",
+      "aerolineas",
+      "latam",
+      "123milhas",
+      "maxmilhas",
+      "despegar",
+      "googleflights"
+    ],
+    "stayNights": 10
   },
   {
     "id": "scl-gyn",
@@ -86,8 +154,21 @@
     "tripType": "roundtrip",
     "origin": "SCL",
     "destination": "GYN",
-    "months": ["2026-12", "2027-01", "2027-02"],
-    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
+    "months": [
+      "2026-12",
+      "2027-01",
+      "2027-02"
+    ],
+    "sites": [
+      "gol",
+      "aerolineas",
+      "latam",
+      "123milhas",
+      "maxmilhas",
+      "despegar",
+      "googleflights"
+    ],
+    "stayNights": 10
   },
   {
     "id": "scl-bsb",
@@ -96,8 +177,21 @@
     "tripType": "roundtrip",
     "origin": "SCL",
     "destination": "BSB",
-    "months": ["2026-12", "2027-01", "2027-02"],
-    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
+    "months": [
+      "2026-12",
+      "2027-01",
+      "2027-02"
+    ],
+    "sites": [
+      "gol",
+      "aerolineas",
+      "latam",
+      "123milhas",
+      "maxmilhas",
+      "despegar",
+      "googleflights"
+    ],
+    "stayNights": 10
   },
   {
     "id": "luq-bue",
@@ -106,7 +200,15 @@
     "tripType": "roundtrip",
     "origin": "LUQ",
     "destination": "AEP",
-    "months": ["2026-12", "2027-01", "2027-02"],
-    "sites": ["aerolineas", "despegar"]
+    "months": [
+      "2026-12",
+      "2027-01",
+      "2027-02"
+    ],
+    "sites": [
+      "aerolineas",
+      "despegar"
+    ],
+    "stayNights": 10
   }
 ]

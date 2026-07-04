@@ -1,6 +1,8 @@
 const { chromium } = require("playwright-extra");
 chromium.use(require("puppeteer-extra-plugin-stealth")());
 
+const { addDaysToISO, monthIndexFromNow } = require("../lib/dates");
+
 const HOME_URL = "https://www.voegol.com.br/nh/home/";
 
 const AIRPORT_HINTS = {
@@ -95,10 +97,11 @@ async function collectCalendarPrices(page, origin, originHint, destination, dest
   return prices;
 }
 
-// routes: array of { id, origin, destination, tripType, months, datePairs }
-// tripType "oneway" records every day found in the target months (calendar
-// already returns the whole month for free); "roundtrip" combines outbound +
-// inbound calendars for the specific date pairs configured.
+// routes: array of { id, origin, destination, tripType, months, stayNights }
+// Both trip types record every day found in the target months (the calendar
+// already returns whole months for free). "oneway" keeps the one-way fare as
+// is; "roundtrip" pairs each day with `stayNights` later and combines the
+// outbound + inbound calendars.
 async function run(routes) {
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ locale: "pt-BR" });
@@ -107,11 +110,10 @@ async function run(routes) {
   const results = [];
 
   for (const route of routes) {
-    const maxMonthIndex = Math.max(
-      ...(route.tripType === "oneway"
-        ? route.months.map((m) => monthIndexFromNow(m))
-        : route.datePairs.flatMap((p) => [monthIndexFromNow(p.departISO), monthIndexFromNow(p.returnISO)]))
-    );
+    // Roundtrip needs one extra month of inbound coverage: a departure on the
+    // last day of the last target month can return well into the next month.
+    const monthBuffer = route.tripType === "roundtrip" ? 1 : 0;
+    const maxMonthIndex = Math.max(...route.months.map((m) => monthIndexFromNow(m))) + monthBuffer;
 
     try {
       if (route.tripType === "oneway") {
@@ -159,24 +161,22 @@ async function run(routes) {
         maxMonthIndex
       );
 
-      for (const pair of route.datePairs) {
-        const outPrice = outboundPrices[pair.departISO];
-        const inPrice = inboundPrices[pair.returnISO];
-        if (outPrice == null && inPrice == null) continue;
+      const targetMonths = new Set(route.months);
+      for (const [departDate, outPrice] of Object.entries(outboundPrices)) {
+        if (!targetMonths.has(departDate.slice(0, 7))) continue;
+        const returnDate = addDaysToISO(departDate, route.stayNights);
+        const inPrice = inboundPrices[returnDate];
         results.push({
           scraped_at: new Date().toISOString(),
           site: "gol",
           route_id: route.id,
           origin: route.origin,
           destination: route.destination,
-          depart_date: pair.departISO,
-          return_date: pair.returnISO,
-          price: outPrice != null && inPrice != null ? outPrice + inPrice : outPrice ?? inPrice,
+          depart_date: departDate,
+          return_date: returnDate,
+          price: inPrice != null ? outPrice + inPrice : outPrice,
           currency: "BRL",
-          notes:
-            outPrice != null && inPrice != null
-              ? ""
-              : "precio de una sola pierna (falta la otra en el calendario)",
+          notes: inPrice != null ? "" : "precio de una sola pierna (falta la otra en el calendario)",
         });
       }
     } catch (err) {
@@ -197,12 +197,6 @@ async function run(routes) {
 
   await browser.close();
   return results;
-}
-
-function monthIndexFromNow(iso) {
-  const now = new Date();
-  const [y, m] = iso.split("-").map(Number);
-  return (y - now.getFullYear()) * 12 + (m - (now.getMonth() + 1));
 }
 
 module.exports = { run };

@@ -6,7 +6,8 @@ const routes = require("./config/routes.json");
 
 const SCRAPERS = {
   gol: () => require("./scrapers/gol"),
-  // aerolineas, latam, 123milhas, maxmilhas, despegar, googleflights: pendientes (ver README)
+  aerolineas: () => require("./scrapers/aerolineas"),
+  // latam, 123milhas, maxmilhas, despegar, googleflights: pendientes (ver README)
 };
 
 // Both trip types scan every day of the target months (the calendar already

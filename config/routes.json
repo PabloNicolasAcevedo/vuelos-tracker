@@ -1,0 +1,42 @@
+[
+  {
+    "id": "bue-gyn",
+    "label": "Buenos Aires - Goiânia",
+    "origin": "EZE",
+    "destination": "GYN",
+    "months": ["2026-10", "2026-12", "2027-01", "2027-02"],
+    "sites": ["gol", "123milhas", "maxmilhas", "aerolineas", "despegar", "googleflights"]
+  },
+  {
+    "id": "bue-bsb",
+    "label": "Buenos Aires - Brasília",
+    "origin": "EZE",
+    "destination": "BSB",
+    "months": ["2026-10", "2026-12", "2027-01", "2027-02"],
+    "sites": ["gol", "123milhas", "maxmilhas", "aerolineas", "despegar", "googleflights"]
+  },
+  {
+    "id": "scl-gyn",
+    "label": "Santiago - Goiânia",
+    "origin": "SCL",
+    "destination": "GYN",
+    "months": ["2026-12", "2027-01", "2027-02"],
+    "sites": ["gol", "123milhas", "maxmilhas", "aerolineas", "despegar", "googleflights"]
+  },
+  {
+    "id": "scl-bsb",
+    "label": "Santiago - Brasília",
+    "origin": "SCL",
+    "destination": "BSB",
+    "months": ["2026-12", "2027-01", "2027-02"],
+    "sites": ["gol", "123milhas", "maxmilhas", "aerolineas", "despegar", "googleflights"]
+  },
+  {
+    "id": "luq-bue",
+    "label": "San Luis - Buenos Aires",
+    "origin": "LUQ",
+    "destination": "AEP",
+    "months": ["2026-12", "2027-01", "2027-02"],
+    "sites": ["aerolineas", "despegar"]
+  }
+]

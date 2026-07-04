@@ -1,39 +1,89 @@
 [
   {
-    "id": "bue-gyn",
-    "label": "Buenos Aires - Goiânia",
+    "id": "oct-eze-gyn",
+    "label": "Buenos Aires (Ezeiza) - Goiânia",
+    "person": "pablo",
+    "tripType": "oneway",
     "origin": "EZE",
     "destination": "GYN",
-    "months": ["2026-10", "2026-12", "2027-01", "2027-02"],
-    "sites": ["gol", "123milhas", "maxmilhas", "aerolineas", "despegar", "googleflights"]
+    "months": ["2026-10"],
+    "sites": ["gol"]
+  },
+  {
+    "id": "oct-eze-bsb",
+    "label": "Buenos Aires (Ezeiza) - Brasília",
+    "person": "pablo",
+    "tripType": "oneway",
+    "origin": "EZE",
+    "destination": "BSB",
+    "months": ["2026-10"],
+    "sites": ["gol"]
+  },
+  {
+    "id": "oct-aep-gyn",
+    "label": "Buenos Aires (Aeroparque) - Goiânia",
+    "person": "pablo",
+    "tripType": "oneway",
+    "origin": "AEP",
+    "destination": "GYN",
+    "months": ["2026-10"],
+    "sites": ["gol"]
+  },
+  {
+    "id": "oct-aep-bsb",
+    "label": "Buenos Aires (Aeroparque) - Brasília",
+    "person": "pablo",
+    "tripType": "oneway",
+    "origin": "AEP",
+    "destination": "BSB",
+    "months": ["2026-10"],
+    "sites": ["gol"]
+  },
+  {
+    "id": "bue-gyn",
+    "label": "Buenos Aires - Goiânia",
+    "person": "david",
+    "tripType": "roundtrip",
+    "origin": "EZE",
+    "destination": "GYN",
+    "months": ["2026-12", "2027-01", "2027-02"],
+    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
   },
   {
     "id": "bue-bsb",
     "label": "Buenos Aires - Brasília",
+    "person": "david",
+    "tripType": "roundtrip",
     "origin": "EZE",
     "destination": "BSB",
-    "months": ["2026-10", "2026-12", "2027-01", "2027-02"],
-    "sites": ["gol", "123milhas", "maxmilhas", "aerolineas", "despegar", "googleflights"]
+    "months": ["2026-12", "2027-01", "2027-02"],
+    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
   },
   {
     "id": "scl-gyn",
     "label": "Santiago - Goiânia",
+    "person": "david",
+    "tripType": "roundtrip",
     "origin": "SCL",
     "destination": "GYN",
     "months": ["2026-12", "2027-01", "2027-02"],
-    "sites": ["gol", "123milhas", "maxmilhas", "aerolineas", "despegar", "googleflights"]
+    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
   },
   {
     "id": "scl-bsb",
     "label": "Santiago - Brasília",
+    "person": "david",
+    "tripType": "roundtrip",
     "origin": "SCL",
     "destination": "BSB",
     "months": ["2026-12", "2027-01", "2027-02"],
-    "sites": ["gol", "123milhas", "maxmilhas", "aerolineas", "despegar", "googleflights"]
+    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
   },
   {
     "id": "luq-bue",
     "label": "San Luis - Buenos Aires",
+    "person": "david",
+    "tripType": "roundtrip",
     "origin": "LUQ",
     "destination": "AEP",
     "months": ["2026-12", "2027-01", "2027-02"],

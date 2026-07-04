@@ -24,6 +24,16 @@ async function dismissGeoModal(page) {
   await page.evaluate(() => document.getElementById("redirGeo")?.remove()).catch(() => {});
 }
 
+// The "switch to the Argentina site?" geo popup can reappear after every
+// navigation and blocks clicks on the search form. Playwright will
+// automatically run this handler and retry the blocked action whenever the
+// popup is in the way, instead of relying on a single one-shot removal.
+async function registerGeoModalHandler(page) {
+  await page.addLocatorHandler(page.locator("#redirGeo"), async () => {
+    await page.evaluate(() => document.getElementById("redirGeo")?.remove()).catch(() => {});
+  });
+}
+
 async function fillAirport(page, inputId, optionText, code) {
   await page.locator(inputId).click({ timeout: 15000 });
   await page.keyboard.press("Control+A");
@@ -85,19 +95,53 @@ async function collectCalendarPrices(page, origin, originHint, destination, dest
   return prices;
 }
 
-// routes: array of { id, origin, destination, datePairs: [{departISO, returnISO}] }
+// routes: array of { id, origin, destination, tripType, months, datePairs }
+// tripType "oneway" records every day found in the target months (calendar
+// already returns the whole month for free); "roundtrip" combines outbound +
+// inbound calendars for the specific date pairs configured.
 async function run(routes) {
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ locale: "pt-BR" });
   const page = await context.newPage();
+  await registerGeoModalHandler(page);
   const results = [];
 
   for (const route of routes) {
     const maxMonthIndex = Math.max(
-      ...route.datePairs.flatMap((p) => [monthIndexFromNow(p.departISO), monthIndexFromNow(p.returnISO)])
+      ...(route.tripType === "oneway"
+        ? route.months.map((m) => monthIndexFromNow(m))
+        : route.datePairs.flatMap((p) => [monthIndexFromNow(p.departISO), monthIndexFromNow(p.returnISO)]))
     );
 
     try {
+      if (route.tripType === "oneway") {
+        const prices = await collectCalendarPrices(
+          page,
+          route.origin,
+          AIRPORT_HINTS[route.origin] || route.origin,
+          route.destination,
+          AIRPORT_HINTS[route.destination] || route.destination,
+          maxMonthIndex
+        );
+        const targetMonths = new Set(route.months);
+        for (const [date, price] of Object.entries(prices)) {
+          if (!targetMonths.has(date.slice(0, 7))) continue;
+          results.push({
+            scraped_at: new Date().toISOString(),
+            site: "gol",
+            route_id: route.id,
+            origin: route.origin,
+            destination: route.destination,
+            depart_date: date,
+            return_date: "",
+            price,
+            currency: "BRL",
+            notes: "",
+          });
+        }
+        continue;
+      }
+
       const outboundPrices = await collectCalendarPrices(
         page,
         route.origin,

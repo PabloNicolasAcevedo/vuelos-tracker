@@ -60,6 +60,26 @@
     "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
   },
   {
+    "id": "bue-aep-gyn",
+    "label": "Buenos Aires (Aeroparque) - Goiânia",
+    "person": "david",
+    "tripType": "roundtrip",
+    "origin": "AEP",
+    "destination": "GYN",
+    "months": ["2026-12", "2027-01", "2027-02"],
+    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
+  },
+  {
+    "id": "bue-aep-bsb",
+    "label": "Buenos Aires (Aeroparque) - Brasília",
+    "person": "david",
+    "tripType": "roundtrip",
+    "origin": "AEP",
+    "destination": "BSB",
+    "months": ["2026-12", "2027-01", "2027-02"],
+    "sites": ["gol", "aerolineas", "latam", "123milhas", "maxmilhas", "despegar", "googleflights"]
+  },
+  {
     "id": "scl-gyn",
     "label": "Santiago - Goiânia",
     "person": "david",

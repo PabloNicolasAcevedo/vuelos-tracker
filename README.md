@@ -9,8 +9,10 @@ Trackea precios de vuelos para dos personas y dos configuraciones distintas:
 - Buenos Aires Aeroparque (AEP) - Brasília (BSB)
 
 **David — diciembre 2026 / enero-febrero 2027, ida y vuelta, todas las rutas y sitios**
-- Buenos Aires (EZE) - Goiânia (GYN)
-- Buenos Aires (EZE) - Brasília (BSB)
+- Buenos Aires Ezeiza (EZE) - Goiânia (GYN)
+- Buenos Aires Ezeiza (EZE) - Brasília (BSB)
+- Buenos Aires Aeroparque (AEP) - Goiânia (GYN)
+- Buenos Aires Aeroparque (AEP) - Brasília (BSB)
 - Santiago (SCL) - Goiânia (GYN)
 - Santiago (SCL) - Brasília (BSB)
 - San Luis (LUQ) - Buenos Aires (AEP)

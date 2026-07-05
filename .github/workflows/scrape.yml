@@ -4,10 +4,14 @@ on:
   schedule:
     # UTC times chosen so runs land at ~06:00, ~14:00, ~22:00 Argentina time
     # (ART = UTC-3); actual delivery is a bit later due to the jitter sleep
-    # below plus scraping time.
-    - cron: "0 9 * * *"
-    - cron: "0 17 * * *"
-    - cron: "0 1 * * *"
+    # below plus scraping time. Minute offset (:13, not :00) is deliberate --
+    # GitHub's own docs warn that schedule triggers queue up (and can be
+    # delayed or dropped entirely) at the top of the hour under load; on
+    # 2026-07-05 the 09:00 UTC run never fired at all, no run record, no
+    # queued job, nothing -- quota and incidents both ruled out.
+    - cron: "13 9 * * *"
+    - cron: "13 17 * * *"
+    - cron: "13 1 * * *"
   workflow_dispatch: {}
 
 permissions:

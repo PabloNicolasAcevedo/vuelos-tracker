@@ -44,8 +44,8 @@ Cada scraper nuevo se agrega en `scrapers/<sitio>.js` (misma forma que `scrapers
 ### Descartados
 
 - **LATAM**: bloqueado por anti-bot (Akamai) incluso navegando "orgánicamente" desde el home antes de buscar — la sesión automatizada nunca recibe resultados reales, ni con el deep-link ni con la API interna del calendario de precios.
-- **123 Milhas**: no tiene protección anti-bot fuerte (su API de precios responde bien a tráfico automatizado en rutas domésticas brasileñas), pero **no vende ninguna de nuestras rutas** — ni siquiera EZE→GRU, una ruta internacional muy operada. No tiene sentido scrapear un sitio con cero inventario para lo que trackeamos.
-- **Max Milhas** y **Despegar**: nunca se llegaron a investigar (se priorizó LATAM y 123 Milhas primero, y ambos resultaron no viables); quedan fuera de los objetivos actuales.
+- **123 Milhas**: pendiente de reintentar. No tiene protección anti-bot fuerte (su API de precios responde bien a tráfico automatizado en rutas domésticas brasileñas), pero las consultas directas a esa API dieron 0 resultados para nuestras rutas internacionales. **Esa conclusión de "sin inventario" era incorrecta** (se puede comprar esa ruta ahora mismo en el sitio) — lo más probable es que la consulta necesite el flujo completo de navegador real en vez de la API directa, o algún parámetro que no se identificó. Queda para reinvestigar, no descartado en firme.
+- **Max Milhas** y **Despegar**: nunca se llegaron a investigar (se priorizó LATAM y 123 Milhas primero); quedan fuera de los objetivos actuales por ahora.
 
 ## Automatización (GitHub Actions)
 

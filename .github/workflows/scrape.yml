@@ -2,9 +2,12 @@ name: Scrape flight prices
 
 on:
   schedule:
-    - cron: "0 6 * * *"
-    - cron: "0 14 * * *"
-    - cron: "0 22 * * *"
+    # UTC times chosen so runs land at ~06:00, ~14:00, ~22:00 Argentina time
+    # (ART = UTC-3); actual delivery is a bit later due to the jitter sleep
+    # below plus scraping time.
+    - cron: "0 9 * * *"
+    - cron: "0 17 * * *"
+    - cron: "0 1 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -42,6 +45,7 @@ jobs:
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           IS_TEST_RUN: ${{ github.event_name == 'workflow_dispatch' }}
         run: node index.js
 

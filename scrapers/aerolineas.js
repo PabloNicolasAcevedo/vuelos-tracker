@@ -26,6 +26,25 @@ function nextMonthStr(monthStr) {
   return `${d.getFullYear()}-${pad(d.getMonth() + 1)}`;
 }
 
+// The calendar response already includes full segment-level detail (times,
+// flight numbers, operating airline, stops) for the offer used to price each
+// day -- it's just never read. Pull it out so the email can show it.
+function extractSchedule(leg) {
+  if (!leg) return null;
+  return {
+    stops: leg.stops ?? 0,
+    totalDurationMin: leg.totalDuration ?? null,
+    segments: (leg.segments || []).map((s) => ({
+      airline: s.operatingAirline || s.airline,
+      flightNumber: s.flightNumber,
+      origin: s.origin,
+      destination: s.destination,
+      departure: s.departure,
+      arrival: s.arrival,
+    })),
+  };
+}
+
 async function fetchMonthCalendar(page, origin, destination, monthStr) {
   const { depart, returnDate } = monthAnchorDates(monthStr);
   const url = `${BASE_URL}?adt=1&inf=0&chd=0&flexDates=true&cabinClass=Economy&flightType=ROUND_TRIP&leg=${origin}-${destination}-${depart}&leg=${destination}-${origin}-${returnDate}`;
@@ -49,13 +68,13 @@ async function fetchMonthCalendar(page, origin, destination, monthStr) {
   const outbound = {};
   for (const offer of captured.calendarOffers?.["0"] || []) {
     if (!offer.soldOut && offer.offerDetails?.fare?.total != null) {
-      outbound[offer.departure] = offer.offerDetails.fare.total;
+      outbound[offer.departure] = { price: offer.offerDetails.fare.total, schedule: extractSchedule(offer.leg) };
     }
   }
   const inbound = {};
   for (const offer of captured.calendarOffers?.["1"] || []) {
     if (!offer.soldOut && offer.offerDetails?.fare?.total != null) {
-      inbound[offer.departure] = offer.offerDetails.fare.total;
+      inbound[offer.departure] = { price: offer.offerDetails.fare.total, schedule: extractSchedule(offer.leg) };
     }
   }
   if (process.env.AR_DEBUG) {
@@ -101,10 +120,16 @@ async function run(routes) {
       }
 
       const targetMonths = new Set(route.months);
-      for (const [departDate, outPrice] of Object.entries(outboundPrices)) {
+      for (const [departDate, out] of Object.entries(outboundPrices)) {
         if (!targetMonths.has(departDate.slice(0, 7))) continue;
         const returnDate = addDaysToISO(departDate, route.stayNights);
-        const inPrice = inboundPrices[returnDate];
+        const inbound = inboundPrices[returnDate];
+        // Schedule detail (times/stops) is only attached on the happy path,
+        // when both legs priced -- the single-leg fallback below keeps its
+        // plain-text note instead, same as before this change.
+        const notes = inbound
+          ? JSON.stringify({ out: out.schedule, in: inbound.schedule })
+          : "precio de una sola pierna (falta la otra en el calendario)";
         results.push({
           scraped_at: new Date().toISOString(),
           site: "aerolineas",
@@ -113,9 +138,9 @@ async function run(routes) {
           destination: route.destination,
           depart_date: departDate,
           return_date: returnDate,
-          price: inPrice != null ? outPrice + inPrice : outPrice,
+          price: inbound ? out.price + inbound.price : out.price,
           currency,
-          notes: inPrice != null ? "" : "precio de una sola pierna (falta la otra en el calendario)",
+          notes,
         });
       }
     } catch (err) {

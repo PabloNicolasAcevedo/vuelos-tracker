@@ -1,14 +1,24 @@
 const { appendRows } = require("./lib/store");
 const { buildSummaries } = require("./lib/summary");
 const { sendSummaryEmails } = require("./lib/email");
+const { loadRawPriceRows } = require("./lib/history");
 
 const routes = require("./config/routes.json");
 
 const SCRAPERS = {
   gol: () => require("./scrapers/gol"),
   aerolineas: () => require("./scrapers/aerolineas"),
-  // latam, 123milhas, maxmilhas, despegar, googleflights: pendientes (ver README)
+  googleflights: () => require("./scrapers/googleflights"),
+  // latam, 123milhas, maxmilhas, despegar: pendientes (ver README)
 };
+
+// Google Flights (via SerpApi) has a 250 free-searches/month budget, so it
+// only runs once a day -- not on every cron trigger like Gol/Aerolineas --
+// and reuses that single daily snapshot across the day's other runs/emails.
+function hasRunGoogleFlightsToday() {
+  const today = new Date().toISOString().slice(0, 10);
+  return loadRawPriceRows().some((row) => row.site === "googleflights" && row.scraped_at.startsWith(today));
+}
 
 // Both trip types scan every day of the target months (the calendar already
 // returns full months in one request); roundtrip pairs each day with a fixed
@@ -37,7 +47,19 @@ async function main() {
   const bySite = buildRoutePlan();
   const allResults = [];
 
-  for (const [site, siteRoutes] of Object.entries(bySite)) {
+  const skipGoogleFlights = hasRunGoogleFlightsToday();
+
+  // Google Flights goes first (when it needs to run at all) so its once-a-day
+  // snapshot is already in prices.csv in time for the first email of the day,
+  // instead of only showing up from the second run onward.
+  const sitesInOrder = Object.keys(bySite).sort((a, b) => (a === "googleflights" ? -1 : b === "googleflights" ? 1 : 0));
+
+  for (const site of sitesInOrder) {
+    const siteRoutes = bySite[site];
+    if (site === "googleflights" && skipGoogleFlights) {
+      console.log("--- Google Flights ya corrió hoy, se salta (se reutiliza el snapshot del día) ---");
+      continue;
+    }
     console.log(`--- Scraping ${site} (${siteRoutes.length} rutas) ---`);
     try {
       const scraper = SCRAPERS[site]();

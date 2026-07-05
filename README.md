@@ -36,14 +36,16 @@ Esto actualiza:
 | Sitio | Estado | Notas |
 |---|---|---|
 | Gol (voegol.com.br) | ✅ funcionando | Usa `playwright-extra` + stealth para pasar el bloqueo anti-bot (Akamai), intercepta la respuesta del endpoint interno `flightcalendar` en vez de tratar de llamarlo directo (requiere un token que solo se genera navegando la UI real). Registra un `page.addLocatorHandler` para cerrar automáticamente el popup de "cambiar al sitio de Argentina" que puede reaparecer entre rutas |
-| Aerolíneas Argentinas | ✅ funcionando | Deep-link directo a `flex-dates-calendar` (sin llenar formulario), intercepta la respuesta de `api.aerolineas.com.ar/v1/flights/offers`, que ya trae el mes completo de ida y vuelta en una sola consulta |
-| LATAM | ⏳ pendiente (prioridad alta) | Pedido explícito para la cobertura de David (rutas a Brasil desde Buenos Aires y Santiago) |
-| 123 Milhas | ⏳ pendiente | OTA con protección anti-bot fuerte |
-| Max Milhas | ⏳ pendiente | Ídem |
-| Despegar | ⏳ pendiente | OTA, protección anti-bot considerable |
-| Google Flights | ⏳ pendiente | De los sitios más difíciles de scrapear en general, dejar para el final |
+| Aerolíneas Argentinas | ✅ funcionando | Deep-link directo a `flex-dates-calendar` (sin llenar formulario), intercepta la respuesta de `api.aerolineas.com.ar/v1/flights/offers`, que ya trae el mes completo de ida y vuelta en una sola consulta. También captura horarios/conexiones (guardados en `notes`), a diferencia de Gol |
+| Google Flights | ✅ funcionando | Vía [SerpApi](https://serpapi.com) (250 búsquedas/mes gratis, sin key propia de Google), no scraping directo. Solo cubre las 4 rutas de Buenos Aires de David (`bue-gyn`, `bue-bsb`, `bue-aep-gyn`, `bue-aep-bsb`) con 1 fecha representativa por ruta y 1 corrida/día (~120 búsquedas/mes) para no gastar la cuota gratuita — corre antes que Gol/Aerolíneas y el resto de las corridas del día reutilizan ese snapshot. Requiere el secret `SERPAPI_KEY` en GitHub Actions; sin él, se salta silenciosamente. Se muestra en el email como sección aparte ("Todas las aerolíneas"), sin competir por `mejor_sitio` con Gol/Aerolíneas |
 
 Cada scraper nuevo se agrega en `scrapers/<sitio>.js` (misma forma que `scrapers/gol.js`: exporta `run(routes)` y devuelve filas normalizadas) y se registra en el mapa `SCRAPERS` de `index.js`. Los sitios listados en `config/routes.json` que todavía no tienen scraper implementado se ignoran automáticamente (no rompen la corrida).
+
+### Descartados
+
+- **LATAM**: bloqueado por anti-bot (Akamai) incluso navegando "orgánicamente" desde el home antes de buscar — la sesión automatizada nunca recibe resultados reales, ni con el deep-link ni con la API interna del calendario de precios.
+- **123 Milhas**: no tiene protección anti-bot fuerte (su API de precios responde bien a tráfico automatizado en rutas domésticas brasileñas), pero **no vende ninguna de nuestras rutas** — ni siquiera EZE→GRU, una ruta internacional muy operada. No tiene sentido scrapear un sitio con cero inventario para lo que trackeamos.
+- **Max Milhas** y **Despegar**: nunca se llegaron a investigar (se priorizó LATAM y 123 Milhas primero, y ambos resultaron no viables); quedan fuera de los objetivos actuales.
 
 ## Automatización (GitHub Actions)
 

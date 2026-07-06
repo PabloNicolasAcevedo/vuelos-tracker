@@ -1,21 +1,6 @@
 # vuelos-tracker
 
-Trackea precios de vuelos para dos personas y dos configuraciones distintas:
-
-**Pablo — octubre 2026, solo ida, solo Gol**
-- Buenos Aires Ezeiza (EZE) - Goiânia (GYN)
-- Buenos Aires Ezeiza (EZE) - Brasília (BSB)
-- Buenos Aires Aeroparque (AEP) - Goiânia (GYN)
-- Buenos Aires Aeroparque (AEP) - Brasília (BSB)
-
-**David — diciembre 2026 / enero-febrero 2027, ida y vuelta, todas las rutas y sitios**
-- Buenos Aires Ezeiza (EZE) - Goiânia (GYN)
-- Buenos Aires Ezeiza (EZE) - Brasília (BSB)
-- Buenos Aires Aeroparque (AEP) - Goiânia (GYN)
-- Buenos Aires Aeroparque (AEP) - Brasília (BSB)
-- Santiago (SCL) - Goiânia (GYN)
-- Santiago (SCL) - Brasília (BSB)
-- San Luis (LUQ) - Buenos Aires (AEP)
+Trackea precios de vuelos.
 
 Rutas, persona y tipo de viaje (`oneway`/`roundtrip`) configurables en [`config/routes.json`](config/routes.json). Ambos tipos de viaje escanean cada día del mes objetivo (el calendario de cada sitio ya devuelve el mes completo en una sola consulta); las rutas `roundtrip` usan `stayNights` (10 noches fijas) para emparejar cada día de ida con su vuelta, evitando la explosión combinatoria de probar todas las combinaciones de fechas posibles.
 

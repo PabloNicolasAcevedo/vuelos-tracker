@@ -23,6 +23,7 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           PABLO_EMAIL: ${{ secrets.PABLO_EMAIL }}
           DAVID_EMAIL: ${{ secrets.DAVID_EMAIL }}
+          IS_TEST_RUN: "true"
         run: |
           node -e "
             const { buildSummaries } = require('./lib/summary');

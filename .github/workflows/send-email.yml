@@ -1,0 +1,32 @@
+name: Send email (sin scraping)
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Rebuild summaries and send email
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          PABLO_EMAIL: ${{ secrets.PABLO_EMAIL }}
+          DAVID_EMAIL: ${{ secrets.DAVID_EMAIL }}
+        run: |
+          node -e "
+            const { buildSummaries } = require('./lib/summary');
+            const { sendSummaryEmails } = require('./lib/email');
+            buildSummaries();
+            sendSummaryEmails().then(() => console.log('Emails enviados')).catch(console.error);
+          "

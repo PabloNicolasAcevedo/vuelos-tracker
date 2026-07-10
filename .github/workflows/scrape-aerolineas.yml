@@ -1,30 +1,25 @@
-name: Scrape flight prices (Gol + Google Flights)
+name: Scrape flight prices (Aerolineas)
 
 on:
   schedule:
-    # 4x/day. Gol uses a stealth headless browser against an anti-bot site, so
-    # its frequency is deliberately conservative (blocking risk); Aerolineas
-    # runs more often in its own workflow (scrape-aerolineas.yml). UTC times
-    # land at ~04:43, ~10:43, ~16:43, ~22:43 Argentina time (ART = UTC-3).
-    # Minute offset (:43, not :00) is deliberate -- GitHub's own docs warn that
-    # schedule triggers queue up (and can be delayed or dropped entirely) at
-    # the top of the hour under load; on 2026-07-05 the 09:00 UTC run never
-    # fired at all, no run record, no queued job, nothing -- quota and
-    # incidents both ruled out.
-    - cron: "43 1,7,13,19 * * *"
+    # 8x/day (every 3h). Aerolineas is a short, low-risk job: it deep-links to
+    # the flex-dates calendar and intercepts the public offers API (one call
+    # per month), no form-filling. Minute offset (:13) avoids GitHub's
+    # top-of-the-hour scheduling congestion (see scrape.yml for details).
+    - cron: "13 */3 * * *"
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
 concurrency:
-  group: scrape-gol
+  group: scrape-aerolineas
   cancel-in-progress: false
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
 
@@ -41,7 +36,7 @@ jobs:
       - name: Random jitter before scraping
         if: github.event_name == 'schedule'
         run: |
-          SLEEP_SECONDS=$(( RANDOM % 1200 ))
+          SLEEP_SECONDS=$(( RANDOM % 600 ))
           echo "Sleeping ${SLEEP_SECONDS}s before starting"
           sleep "$SLEEP_SECONDS"
 
@@ -49,11 +44,10 @@ jobs:
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
           PABLO_EMAIL: ${{ secrets.PABLO_EMAIL }}
           DAVID_EMAIL: ${{ secrets.DAVID_EMAIL }}
           IS_TEST_RUN: ${{ github.event_name == 'workflow_dispatch' }}
-          SITES: gol,googleflights
+          SITES: aerolineas
           EMAIL_MODE: alerts
         run: node index.js
 
@@ -63,12 +57,10 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add data/prices/ data/resumen-pablo.csv data/resumen-david.csv data/alerts-state.json docs/data/
           git diff --cached --quiet && echo "Sin cambios" && exit 0
-          git commit -m "Actualiza precios (gol) $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          # The Aerolineas workflow can push while this one runs; rebase our
-          # commit on top and retry. CSV partitions merge cleanly (merge=union
-          # in .gitattributes, both sides append-only); regenerated files
-          # (resumenes, docs/data) keep our version via -X theirs and are
-          # rebuilt from the full history on the next run anyway.
+          git commit -m "Actualiza precios (aerolineas) $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          # See scrape.yml: rebase-and-retry against concurrent pushes from
+          # the Gol workflow; CSV partitions union-merge, regenerated files
+          # keep our version and self-heal on the next run.
           for i in 1 2 3; do
             git push && exit 0
             git fetch origin master

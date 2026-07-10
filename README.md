@@ -13,8 +13,15 @@ npm run scrape
 ```
 
 Esto actualiza:
-- `data/prices.csv`: histórico crudo, una fila por sitio/ruta/fecha/corrida (nunca se sobreescribe, solo se agrega).
+- `data/prices/<YYYY-MM>.csv`: histórico crudo particionado por mes de scrapeo, una fila por sitio/ruta/fecha/corrida (nunca se sobreescribe, solo se agrega). Particionado para no chocar con el límite de 100MB por archivo de GitHub.
 - `data/resumen-pablo.csv` y `data/resumen-david.csv`: se regeneran enteros en cada corrida a partir del histórico. Formato pivotado (una fila por ruta+fecha(s), una columna por sitio) pensado para revisión manual y decidir cuándo comprar — incluyen `mejor_precio` y `mejor_sitio` calculados siempre a partir del scrape más reciente de cada sitio.
+- `docs/data/`: los JSON que consume el sitio estático (ver abajo).
+
+Variables útiles: `SITES=gol,aerolineas` limita qué sitios se scrapean; `EMAIL_MODE=none|digest|alerts` controla el envío de emails (default `digest`).
+
+## Sitio estático (GitHub Pages)
+
+`docs/` es un buscador estático servido por GitHub Pages (Settings → Pages → branch `master`, folder `/docs`): selector de ruta y fecha, precios actuales por sitio con equivalente en ARS y link de compra, gráfico de evolución histórica del precio (mínimo diario por sitio) y gráfico del mejor precio actual por fecha de salida. Los datos (`docs/data/index.json` + un JSON por ruta) los regenera `lib/siteData.js` en cada corrida del scraper y se commitean junto con el histórico; el sitio muestra cuándo fue la última actualización.
 
 ## Fuentes de datos
 
@@ -34,10 +41,19 @@ Cada scraper nuevo se agrega en `scrapers/<sitio>.js` (misma forma que `scrapers
 
 ## Automatización (GitHub Actions)
 
-`.github/workflows/scrape.yml` corre 3 veces por día (~cada 8h, con hasta 20 min de espera aleatoria para variar el horario exacto) y commitea `data/prices.csv` + los dos resúmenes automáticamente. No requiere que la PC esté prendida.
+Tres workflows, todos con jitter aleatorio y minuto corrido (no `:00`) para esquivar la congestión de schedules de GitHub:
 
-Para dispararlo manualmente: pestaña *Actions* del repo → *Scrape flight prices* → *Run workflow* (en ese caso salta la espera aleatoria y el envío de email se limita solo a Pablo, marcado como "[PRUEBA]" en el asunto — David nunca recibe corridas manuales de prueba).
+- `scrape-aerolineas.yml`: 8 veces por día (cada 3h). Aerolíneas es rápido y de bajo riesgo (intercepta la API pública del calendario flex), así que puede correr seguido.
+- `scrape.yml` (Gol + Google Flights): 4 veces por día. Gol usa browser con stealth contra un sitio con anti-bot — más frecuencia sube el riesgo de bloqueo. Google Flights mantiene su límite interno de 1 corrida/día (cuota de SerpApi).
+- `digest.yml`: 1 vez por día a la mañana, manda el email resumen completo sin scrapear (usa el histórico ya commiteado).
 
-## Email
+Ambos workflows de scrape corren con `EMAIL_MODE=alerts` y commitean el histórico + resúmenes + `docs/data/` + `data/alerts-state.json`. Si dos corridas se pisan, el push reintenta con rebase; las particiones CSV usan `merge=union` (`.gitattributes`) porque son append-only.
 
-Al final de cada corrida se manda un email con el mejor precio encontrado por ruta (no la tabla completa, esa va adjunta como CSV). Requiere los secrets `GMAIL_USER`, `GMAIL_APP_PASSWORD` (contraseña de aplicación de Gmail), `PABLO_EMAIL` y `DAVID_EMAIL` (destinatarios, para no hardcodear direcciones reales en el código); si falta alguno, el envío se salta silenciosamente. Cada tarjeta incluye un link directo para comprar esa fecha/ruta en el sitio ganador, y si el precio está en reales muestra también su equivalente aproximado en pesos argentinos (cotización del día vía `open.er-api.com`, sin API key).
+Para disparar cualquiera manualmente: pestaña *Actions* → *Run workflow* (en corridas manuales el email va solo a Pablo, con prefijo "[TEST]" en el asunto — David nunca recibe corridas de prueba).
+
+## Emails: alertas + digest diario
+
+- **Alertas** (`lib/alerts.js`): en cada corrida de scrape se evalúan solo las filas nuevas contra el histórico; se manda email únicamente si hay una oferta valiosa. Criterios (configurables por ruta en `config/routes.json`, campo opcional `alerts`): nuevo mínimo histórico, precio ≥15% debajo del promedio histórico (`percentBelowAvg`, con al menos 5 puntos de historia), caída ≥10% vs la corrida anterior (`dropPercent`), o precio debajo de un tope absoluto (`absoluteBelow: { price, currency }`, sin default). Cooldown de 24h por combinación ruta+fechas+sitio (`data/alerts-state.json`, commiteado), salvo que el precio siga cayendo ≥3%. Si muchas fechas de una misma ruta disparan a la vez (típico en una promo), se colapsan en una sola tarjeta con la fecha más barata + "otras N fechas".
+- **Digest diario** (`digest.yml`): el email resumen de siempre (dashboard, mejor precio por ruta, sección Google Flights, CSVs adjuntos), una vez por día como red de seguridad mientras se calibran los umbrales de alerta. Cuando las alertas demuestren no perderse nada, se puede bajar a semanal o apagar.
+
+Ambos requieren los secrets `GMAIL_USER`, `GMAIL_APP_PASSWORD` (contraseña de aplicación de Gmail), `PABLO_EMAIL` y `DAVID_EMAIL`; si falta alguno, el envío se salta silenciosamente. Cada tarjeta incluye un link directo para comprar esa fecha/ruta en el sitio ganador, y si el precio está en reales muestra también su equivalente aproximado en pesos argentinos (cotización del día vía `open.er-api.com`, sin API key).

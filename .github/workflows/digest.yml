@@ -1,12 +1,18 @@
-name: Send email (sin scraping)
+name: Daily digest email
 
 on:
+  schedule:
+    # Once a day at ~06:13 ART: the full summary email (dashboard + best price
+    # per route) as a safety net while the alert system is being calibrated.
+    # No scraping and no Playwright -- it rebuilds the summaries from the
+    # already-committed history, so the job takes ~1 minute.
+    - cron: "13 9 * * *"
   workflow_dispatch: {}
 
 jobs:
-  email:
+  digest:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
 
@@ -17,17 +23,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Rebuild summaries and send email
+      - name: Rebuild summaries and send digest
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           PABLO_EMAIL: ${{ secrets.PABLO_EMAIL }}
           DAVID_EMAIL: ${{ secrets.DAVID_EMAIL }}
-          IS_TEST_RUN: "true"
+          IS_TEST_RUN: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
           node -e "
             const { buildSummaries } = require('./lib/summary');
             const { sendSummaryEmails } = require('./lib/email');
             buildSummaries();
-            sendSummaryEmails().then(() => console.log('Emails enviados')).catch(console.error);
+            sendSummaryEmails().then(() => console.log('Digest enviado')).catch((err) => { console.error(err); process.exit(1); });
           "

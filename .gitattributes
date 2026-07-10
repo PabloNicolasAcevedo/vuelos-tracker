@@ -1,0 +1,4 @@
+# Price history partitions are append-only: when two scrape workflows push
+# concurrently, union merge keeps both sides' appended rows instead of
+# conflicting at end-of-file.
+data/prices/*.csv merge=union

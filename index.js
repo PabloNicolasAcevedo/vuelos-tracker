@@ -1,7 +1,8 @@
 const { appendRows } = require("./lib/store");
 const { buildSummaries } = require("./lib/summary");
-const { sendSummaryEmails } = require("./lib/email");
+const { sendSummaryEmails, sendAlertEmails } = require("./lib/email");
 const { buildSiteData } = require("./lib/siteData");
+const { evaluateAlerts, recordAlertsSent } = require("./lib/alerts");
 const { loadRawPriceRows } = require("./lib/history");
 
 const routes = require("./config/routes.json");
@@ -25,11 +26,18 @@ function hasRunGoogleFlightsToday() {
 // returns full months in one request); roundtrip pairs each day with a fixed
 // stayNights so coverage stays complete without exploding date combinations.
 function buildRoutePlan() {
+  // SITES (comma-separated, e.g. "aerolineas" or "gol,googleflights") lets
+  // each GitHub Actions workflow scrape only its own sites, so the fast
+  // Aerolineas job can run more often than the slow Gol one.
+  const sitesFilter = process.env.SITES
+    ? new Set(process.env.SITES.split(",").map((s) => s.trim()).filter(Boolean))
+    : null;
   const bySite = {};
   for (const route of routes) {
     const tripType = route.tripType || "roundtrip";
     for (const site of route.sites) {
       if (!SCRAPERS[site]) continue; // scraper not implemented yet
+      if (sitesFilter && !sitesFilter.has(site)) continue;
       bySite[site] = bySite[site] || [];
       bySite[site].push({
         id: route.id,
@@ -90,8 +98,26 @@ async function main() {
     console.error("Error generando datos del sitio:", err.message);
   }
 
+  // EMAIL_MODE: "digest" (default) sends the full summary email every run,
+  // "alerts" only emails when a genuinely good deal shows up in this run's
+  // fresh rows, "none" never emails (e.g. the frequent Aerolineas workflow
+  // relies on the daily digest + alerts instead of spamming per-run emails).
+  const emailMode = process.env.EMAIL_MODE || "digest";
   try {
-    await sendSummaryEmails();
+    if (emailMode === "digest") {
+      await sendSummaryEmails();
+    } else if (emailMode === "alerts") {
+      const { alerts, prunedState } = evaluateAlerts(allResults);
+      if (alerts.length) {
+        await sendAlertEmails(alerts);
+        recordAlertsSent(alerts, prunedState);
+        console.log(`Alertas enviadas: ${alerts.length}`);
+      } else {
+        console.log("Sin alertas en esta corrida.");
+      }
+    } else {
+      console.log("EMAIL_MODE=none: no se envían emails.");
+    }
   } catch (err) {
     console.error("Error enviando emails:", err.message);
   }

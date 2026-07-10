@@ -1,6 +1,7 @@
 const { appendRows } = require("./lib/store");
 const { buildSummaries } = require("./lib/summary");
 const { sendSummaryEmails } = require("./lib/email");
+const { buildSiteData } = require("./lib/siteData");
 const { loadRawPriceRows } = require("./lib/history");
 
 const routes = require("./config/routes.json");
@@ -81,6 +82,13 @@ async function main() {
 
   buildSummaries();
   console.log("Regenerados data/resumen-pablo.csv y data/resumen-david.csv");
+
+  try {
+    await buildSiteData();
+    console.log("Regenerado docs/data/ para el sitio");
+  } catch (err) {
+    console.error("Error generando datos del sitio:", err.message);
+  }
 
   try {
     await sendSummaryEmails();

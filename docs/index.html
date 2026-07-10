@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vuelos Tracker</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>✈️ Vuelos Tracker</h1>
+      <p id="updated-at" class="muted"></p>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label>
+        <span>Ruta</span>
+        <select id="route-select"></select>
+      </label>
+      <label>
+        <span>Fecha de salida</span>
+        <select id="date-select"></select>
+      </label>
+    </section>
+
+    <section id="trip-summary" class="card trip-summary hidden"></section>
+
+    <section class="card">
+      <h2 id="prices-title">Precios actuales</h2>
+      <div class="table-wrap">
+        <table id="prices-table">
+          <thead>
+            <tr>
+              <th>Sitio</th>
+              <th class="num">Precio</th>
+              <th class="num">≈ ARS</th>
+              <th>Actualizado</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Evolución del precio</h2>
+      <p class="muted chart-caption">Mínimo diario registrado para la fecha elegida, por sitio.</p>
+      <div class="chart-wrap"><canvas id="history-chart"></canvas></div>
+    </section>
+
+    <section class="card">
+      <h2>Mejor precio actual por fecha de salida</h2>
+      <p class="muted chart-caption">Toda la ruta de un vistazo — clic en un punto para ver esa fecha.</p>
+      <div class="chart-wrap"><canvas id="dates-chart"></canvas></div>
+    </section>
+  </main>
+
+  <footer class="muted">
+    Datos scrapeados automáticamente de Gol, Aerolíneas Argentinas y Google Flights.
+    Los precios pueden variar al momento de comprar.
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

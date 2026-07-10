@@ -46,6 +46,7 @@ function buildRoutePlan() {
         tripType,
         months: route.months,
         fromDate: route.fromDate,
+        toDate: route.toDate,
         stayNights: route.stayNights,
       });
     }

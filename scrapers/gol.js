@@ -129,6 +129,7 @@ async function run(routes) {
         for (const [date, price] of Object.entries(prices)) {
           if (!targetMonths.has(date.slice(0, 7))) continue;
           if (route.fromDate && date < route.fromDate) continue;
+          if (route.toDate && date > route.toDate) continue;
           results.push({
             scraped_at: new Date().toISOString(),
             site: "gol",
@@ -166,6 +167,7 @@ async function run(routes) {
       for (const [departDate, outPrice] of Object.entries(outboundPrices)) {
         if (!targetMonths.has(departDate.slice(0, 7))) continue;
         if (route.fromDate && departDate < route.fromDate) continue;
+        if (route.toDate && departDate > route.toDate) continue;
         const returnDate = addDaysToISO(departDate, route.stayNights);
         const inPrice = inboundPrices[returnDate];
         results.push({

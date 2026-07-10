@@ -11,7 +11,10 @@
 <body>
   <header>
     <div class="header-inner">
-      <h1>✈️ Vuelos Tracker</h1>
+      <div class="header-row">
+        <h1>✈️ Vuelos Tracker</h1>
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Cambiar tema" title="Cambiar tema claro/oscuro"></button>
+      </div>
       <p id="updated-at" class="muted"></p>
     </div>
   </header>
@@ -23,9 +26,25 @@
         <select id="route-select"></select>
       </label>
       <label>
-        <span>Fecha de salida</span>
-        <select id="date-select"></select>
+        <span>Mostrar precios en</span>
+        <div class="segmented" id="currency-toggle">
+          <button type="button" data-currency="original" class="active">Moneda original</button>
+          <button type="button" data-currency="ARS">Pesos (ARS)</button>
+        </div>
       </label>
+    </section>
+
+    <section class="controls">
+      <div class="datepicker" id="depart-picker">
+        <span>Fecha de salida</span>
+        <button type="button" class="date-trigger" id="depart-trigger"></button>
+        <div class="calendar-popover hidden" id="depart-calendar"></div>
+      </div>
+      <div class="datepicker" id="return-picker">
+        <span>Fecha de regreso</span>
+        <button type="button" class="date-trigger" id="return-trigger"></button>
+        <div class="calendar-popover hidden" id="return-calendar"></div>
+      </div>
     </section>
 
     <section id="trip-summary" class="card trip-summary hidden"></section>
@@ -38,7 +57,6 @@
             <tr>
               <th>Sitio</th>
               <th class="num">Precio</th>
-              <th class="num">≈ ARS</th>
               <th>Actualizado</th>
               <th></th>
             </tr>

@@ -11,20 +11,87 @@
     aerolineas: cssVar("--series-aerolineas"),
     googleflights: cssVar("--series-googleflights"),
   };
+  const WEEKDAYS = ["D", "L", "M", "M", "J", "V", "S"];
+  const MONTH_NAMES = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre",
+  ];
 
   const state = {
     index: null,
     route: null, // route JSON currently loaded
     optionIdx: 0,
+    currency: "original", // "original" | "ARS"
     historyChart: null,
     datesChart: null,
+    departCalMonth: null, // {y, m} (m = 0-indexed) currently shown in the depart popover
+    returnCalMonth: null,
   };
 
   const $route = document.getElementById("route-select");
-  const $date = document.getElementById("date-select");
+  const $departTrigger = document.getElementById("depart-trigger");
+  const $returnTrigger = document.getElementById("return-trigger");
+  const $departCal = document.getElementById("depart-calendar");
+  const $returnCal = document.getElementById("return-calendar");
+  const $returnPicker = document.getElementById("return-picker");
+  const $themeToggle = document.getElementById("theme-toggle");
+  const $currencyToggle = document.getElementById("currency-toggle");
 
   function cssVar(name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  // --- Theme ---------------------------------------------------------------
+
+  function effectiveTheme() {
+    const override = localStorage.getItem("theme");
+    if (override) return override;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    $themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
+    // Series colors are read from CSS vars at chart-build time, so re-render
+    // the charts whenever the palette actually changes.
+    if (state.route) {
+      renderHistoryChart(state.route.options[state.optionIdx]);
+      renderDatesChart();
+    }
+  }
+
+  function initTheme() {
+    applyTheme(effectiveTheme());
+    $themeToggle.addEventListener("click", () => {
+      const next = effectiveTheme() === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", next);
+      applyTheme(next);
+    });
+  }
+
+  // --- Currency --------------------------------------------------------------
+
+  function initCurrencyToggle() {
+    state.currency = localStorage.getItem("currency") || "original";
+    for (const btn of $currencyToggle.querySelectorAll("button")) {
+      btn.classList.toggle("active", btn.dataset.currency === state.currency);
+      btn.addEventListener("click", () => {
+        state.currency = btn.dataset.currency;
+        localStorage.setItem("currency", state.currency);
+        for (const b of $currencyToggle.querySelectorAll("button")) b.classList.toggle("active", b === btn);
+        render();
+      });
+    }
+  }
+
+  // Converts a scraped price into whatever currency the user chose to view
+  // everything in; "original" leaves each price in the currency it was
+  // actually quoted in (mixing BRL/ARS across sites if that ever happens).
+  function displayPrice(value, currency) {
+    if (state.currency === "ARS" && currency === "BRL" && state.index.brl_ars_rate) {
+      return { value: value * state.index.brl_ars_rate, currency: "ARS" };
+    }
+    return { value, currency };
   }
 
   function fmtMoney(value, currency) {
@@ -36,10 +103,9 @@
     }).format(value);
   }
 
-  function fmtARS(value, currency) {
-    const rate = state.index.brl_ars_rate;
-    if (currency !== "BRL" || !rate) return "—";
-    return fmtMoney(value * rate, "ARS");
+  function fmtDisplay(value, currency) {
+    const d = displayPrice(value, currency);
+    return fmtMoney(d.value, d.currency);
   }
 
   function fmtDate(iso) {
@@ -58,9 +124,145 @@
 
   function chartDefaults() {
     Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
-    Chart.defaults.color = cssVar("--muted");
-    Chart.defaults.borderColor = cssVar("--grid");
   }
+
+  // --- Calendar date pickers -------------------------------------------------
+  // Flight-search-style: a button that opens a month grid where only the
+  // dates we actually have data for are clickable, each showing its cheapest
+  // price as a hint (like Google Flights/Skyscanner's calendar).
+
+  function closeAllCalendars() {
+    $departCal.classList.add("hidden");
+    $returnCal.classList.add("hidden");
+  }
+
+  document.addEventListener("click", (evt) => {
+    if (!evt.target.closest(".datepicker")) closeAllCalendars();
+  });
+
+  function monthKey(iso) {
+    const [y, m] = iso.split("-").map(Number);
+    return { y, m: m - 1 };
+  }
+
+  function renderCalendar(container, { dateField, readOnly, monthState, onPick }) {
+    const options = state.route.options;
+    const withDates = options.filter((o) => o[dateField]);
+    if (!withDates.length) {
+      container.innerHTML = "";
+      return;
+    }
+    const byDate = new Map(withDates.map((o) => [o[dateField], o]));
+    const allMonths = [...new Set(withDates.map((o) => monthKey(o[dateField]).y * 12 + monthKey(o[dateField]).m))].sort(
+      (a, b) => a - b
+    );
+    const minMonth = allMonths[0];
+    const maxMonth = allMonths[allMonths.length - 1];
+
+    if (!monthState.current) {
+      const selected = options[state.optionIdx];
+      monthState.current = selected[dateField] ? monthKey(selected[dateField]) : monthKey(withDates[0][dateField]);
+    }
+    const { y, m } = monthState.current;
+    const monthIdx = y * 12 + m;
+
+    const firstOfMonth = new Date(y, m, 1);
+    const daysInMonth = new Date(y, m + 1, 0).getDate();
+    const startWeekday = firstOfMonth.getDay();
+
+    const selectedDate = options[state.optionIdx][dateField];
+
+    let daysHtml = "";
+    for (let i = 0; i < startWeekday; i++) daysHtml += `<div class="cal-day"></div>`;
+    for (let day = 1; day <= daysInMonth; day++) {
+      const iso = `${y}-${String(m + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+      const option = byDate.get(iso);
+      const classes = ["cal-day"];
+      if (option) classes.push("available");
+      if (iso === selectedDate) classes.push("selected");
+      const priceHtml = option
+        ? `<span class="cal-day-price">${fmtDisplay(option.best.price, option.best.currency).replace(/[^\d.,]/g, "")}</span>`
+        : "";
+      daysHtml += `<button type="button" class="${classes.join(" ")}" data-iso="${iso}" ${option ? "" : "disabled"}>
+        <span class="cal-day-num">${day}</span>${priceHtml}
+      </button>`;
+    }
+
+    container.innerHTML = `
+      <div class="cal-header">
+        <button type="button" class="cal-nav" data-dir="-1" ${monthIdx <= minMonth ? "disabled" : ""}>‹</button>
+        <span>${MONTH_NAMES[m]} ${y}</span>
+        <button type="button" class="cal-nav" data-dir="1" ${monthIdx >= maxMonth ? "disabled" : ""}>›</button>
+      </div>
+      <div class="cal-weekdays">${WEEKDAYS.map((w) => `<div>${w}</div>`).join("")}</div>
+      <div class="cal-days">${daysHtml}</div>`;
+
+    container.querySelector(".cal-nav[data-dir='-1']")?.addEventListener("click", () => {
+      monthState.current = m === 0 ? { y: y - 1, m: 11 } : { y, m: m - 1 };
+      renderCalendar(container, { dateField, readOnly, monthState, onPick });
+    });
+    container.querySelector(".cal-nav[data-dir='1']")?.addEventListener("click", () => {
+      monthState.current = m === 11 ? { y: y + 1, m: 0 } : { y, m: m + 1 };
+      renderCalendar(container, { dateField, readOnly, monthState, onPick });
+    });
+    if (!readOnly) {
+      for (const btn of container.querySelectorAll(".cal-day.available")) {
+        btn.addEventListener("click", () => onPick(byDate.get(btn.dataset.iso)));
+      }
+    }
+  }
+
+  function updateDateTriggers() {
+    const option = state.route.options[state.optionIdx];
+    $departTrigger.textContent = `📅 ${fmtDate(option.depart)}`;
+    if (option.return) {
+      $returnPicker.classList.remove("hidden");
+      $returnTrigger.textContent = `📅 ${fmtDate(option.return)}`;
+    } else {
+      $returnPicker.classList.add("hidden");
+    }
+  }
+
+  function selectOptionByDate(dateField, option) {
+    const idx = state.route.options.indexOf(option);
+    if (idx === -1) return;
+    state.optionIdx = idx;
+    closeAllCalendars();
+    render();
+  }
+
+  function initDatePickers() {
+    $departTrigger.addEventListener("click", (evt) => {
+      evt.stopPropagation();
+      const opening = $departCal.classList.contains("hidden");
+      closeAllCalendars();
+      if (!opening) return;
+      state.departCalMonth = {};
+      renderCalendar($departCal, {
+        dateField: "depart",
+        readOnly: false,
+        monthState: state.departCalMonth,
+        onPick: (option) => selectOptionByDate("depart", option),
+      });
+      $departCal.classList.remove("hidden");
+    });
+    $returnTrigger.addEventListener("click", (evt) => {
+      evt.stopPropagation();
+      const opening = $returnCal.classList.contains("hidden");
+      closeAllCalendars();
+      if (!opening) return;
+      state.returnCalMonth = {};
+      renderCalendar($returnCal, {
+        dateField: "return",
+        readOnly: false,
+        monthState: state.returnCalMonth,
+        onPick: (option) => selectOptionByDate("return", option),
+      });
+      $returnCal.classList.remove("hidden");
+    });
+  }
+
+  // --- App -------------------------------------------------------------------
 
   async function init() {
     state.index = await (await fetch("data/index.json")).json();
@@ -76,11 +278,10 @@
     }
 
     chartDefaults();
+    initTheme();
+    initCurrencyToggle();
+    initDatePickers();
     $route.addEventListener("change", () => loadRoute($route.value));
-    $date.addEventListener("change", () => {
-      state.optionIdx = Number($date.value);
-      render();
-    });
 
     await loadRoute(state.index.routes[0].id);
   }
@@ -88,29 +289,22 @@
   async function loadRoute(id) {
     state.route = await (await fetch(`data/routes/${id}.json`)).json();
 
-    $date.innerHTML = "";
-    state.route.options.forEach((option, i) => {
-      const opt = document.createElement("option");
-      opt.value = String(i);
-      opt.textContent = option.return
-        ? `${fmtDate(option.depart)} → vuelta ${fmtDate(option.return)}`
-        : fmtDate(option.depart);
-      $date.appendChild(opt);
-    });
-
     // Preselect the cheapest date so the page opens on the best deal.
     let bestIdx = 0;
     state.route.options.forEach((option, i) => {
       if (option.best.price < state.route.options[bestIdx].best.price) bestIdx = i;
     });
     state.optionIdx = bestIdx;
-    $date.value = String(bestIdx);
+    state.departCalMonth = null;
+    state.returnCalMonth = null;
+    closeAllCalendars();
 
     render();
   }
 
   function render() {
     const option = state.route.options[state.optionIdx];
+    updateDateTriggers();
     renderSummary(option);
     renderTable(option);
     renderHistoryChart(option);
@@ -124,8 +318,8 @@
     el.classList.remove("hidden");
     el.innerHTML = `
       <div>
-        <div class="big">${fmtMoney(best.price, best.currency)}</div>
-        <div class="sub">≈ ${fmtARS(best.price, best.currency)} · mejor precio en ${SITE_LABELS[best.site] || best.site}
+        <div class="big">${fmtDisplay(best.price, best.currency)}</div>
+        <div class="sub">mejor precio en ${SITE_LABELS[best.site] || best.site}
         ${isMin ? '<span class="badge-min">🏆 Mínimo histórico</span>' : ""}</div>
       </div>
       <div class="sub">
@@ -147,8 +341,7 @@
         <td><span class="site-cell"><span class="site-dot" style="background:${SITE_COLORS[site] || "#888"}"></span>${SITE_LABELS[site] || site}</span>${
           cur.is_historical_min ? '<span class="badge-min">Mínimo histórico</span>' : ""
         }</td>
-        <td class="num">${fmtMoney(cur.price, cur.currency)}</td>
-        <td class="num">${fmtARS(cur.price, cur.currency)}</td>
+        <td class="num">${fmtDisplay(cur.price, cur.currency)}</td>
         <td class="muted">${fmtAgo(cur.scraped_at)}</td>
         <td>${cur.link ? `<a class="buy-btn" href="${cur.link}" target="_blank" rel="noopener">Ver y comprar</a>` : ""}</td>`;
       tbody.appendChild(tr);
@@ -159,13 +352,20 @@
     const ctx = document.getElementById("history-chart");
     if (state.historyChart) state.historyChart.destroy();
 
+    Chart.defaults.color = cssVar("--muted");
+    Chart.defaults.borderColor = cssVar("--grid");
+
     // Union of scrape days across sites, as shared x labels.
     const days = [...new Set(Object.values(option.history).flatMap((h) => h.points.map((p) => p[0])))].sort();
+    const displayCurrency = displayPrice(0, Object.values(option.history)[0]?.currency || "BRL").currency;
     const datasets = Object.entries(option.history).map(([site, h]) => {
       const byDay = new Map(h.points);
       return {
         label: SITE_LABELS[site] || site,
-        data: days.map((d) => byDay.get(d) ?? null),
+        data: days.map((d) => {
+          const raw = byDay.get(d);
+          return raw == null ? null : displayPrice(raw, h.currency).value;
+        }),
         borderColor: SITE_COLORS[site] || "#888",
         backgroundColor: SITE_COLORS[site] || "#888",
         borderWidth: 2,
@@ -186,14 +386,13 @@
           legend: { display: datasets.length > 1 },
           tooltip: {
             callbacks: {
-              label: (item) =>
-                ` ${item.dataset.label}: ${fmtMoney(item.parsed.y, option.best.currency)}`,
+              label: (item) => ` ${item.dataset.label}: ${fmtMoney(item.parsed.y, displayCurrency)}`,
             },
           },
         },
         scales: {
           y: {
-            ticks: { callback: (v) => fmtMoney(v, option.best.currency) },
+            ticks: { callback: (v) => fmtMoney(v, displayCurrency) },
           },
         },
       },
@@ -204,8 +403,11 @@
     const ctx = document.getElementById("dates-chart");
     if (state.datesChart) state.datesChart.destroy();
 
+    Chart.defaults.color = cssVar("--muted");
+    Chart.defaults.borderColor = cssVar("--grid");
+
     const options = state.route.options;
-    const currency = options[0].best.currency;
+    const displayCurrency = displayPrice(0, options[0].best.currency).currency;
     const color = cssVar("--primary");
 
     state.datesChart = new Chart(ctx, {
@@ -215,7 +417,7 @@
         datasets: [
           {
             label: "Mejor precio actual",
-            data: options.map((o) => o.best.price),
+            data: options.map((o) => displayPrice(o.best.price, o.best.currency).value),
             borderColor: color,
             backgroundColor: color,
             borderWidth: 2,
@@ -231,7 +433,8 @@
         onClick: (_evt, elements) => {
           if (!elements.length) return;
           state.optionIdx = elements[0].index;
-          $date.value = String(state.optionIdx);
+          state.departCalMonth = null;
+          state.returnCalMonth = null;
           render();
         },
         plugins: {
@@ -240,14 +443,14 @@
             callbacks: {
               label: (item) => {
                 const o = options[item.dataIndex];
-                return ` ${fmtMoney(o.best.price, o.best.currency)} (${SITE_LABELS[o.best.site] || o.best.site})`;
+                return ` ${fmtDisplay(o.best.price, o.best.currency)} (${SITE_LABELS[o.best.site] || o.best.site})`;
               },
             },
           },
         },
         scales: {
           y: {
-            ticks: { callback: (v) => fmtMoney(v, currency) },
+            ticks: { callback: (v) => fmtMoney(v, displayCurrency) },
           },
         },
       },

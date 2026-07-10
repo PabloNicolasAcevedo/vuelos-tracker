@@ -123,6 +123,7 @@ async function run(routes) {
       for (const [departDate, out] of Object.entries(outboundPrices)) {
         if (!targetMonths.has(departDate.slice(0, 7))) continue;
         if (route.fromDate && departDate < route.fromDate) continue;
+        if (route.toDate && departDate > route.toDate) continue;
         const returnDate = addDaysToISO(departDate, route.stayNights);
         const inbound = inboundPrices[returnDate];
         // Schedule detail (times/stops) is only attached on the happy path,

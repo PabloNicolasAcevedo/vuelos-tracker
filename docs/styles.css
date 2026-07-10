@@ -32,6 +32,41 @@
   }
 }
 
+/* Explicit theme override (set via the header toggle) wins over the OS
+   preference above regardless of source order, since an attribute selector
+   on :root is more specific than a bare :root. */
+:root[data-theme="light"] {
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --border: rgba(11, 11, 11, 0.1);
+  --primary: #0052cc;
+  --series-gol: #2a78d6;
+  --series-aerolineas: #1baf7a;
+  --series-googleflights: #eda100;
+  --badge-min-bg: #e3f4e3;
+  --badge-min-ink: #006300;
+}
+
+:root[data-theme="dark"] {
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --border: rgba(255, 255, 255, 0.1);
+  --primary: #3987e5;
+  --series-gol: #3987e5;
+  --series-aerolineas: #199e70;
+  --series-googleflights: #c98500;
+  --badge-min-bg: #103a10;
+  --badge-min-ink: #6fd66f;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -62,9 +97,36 @@ footer {
   padding-bottom: 16px;
 }
 
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
 h1 {
   margin: 0;
   font-size: 1.4rem;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background: var(--page);
 }
 
 h2 {
@@ -109,6 +171,161 @@ main {
   background: var(--surface);
   color: var(--ink);
   font-size: 0.95rem;
+}
+
+/* Currency segmented toggle */
+.segmented {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.segmented button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 8px;
+  cursor: pointer;
+}
+
+.segmented button.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Date pickers: flight-search-style calendar popovers */
+.datepicker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1 1 220px;
+  font-size: 0.8rem;
+  color: var(--ink-2);
+  font-weight: 600;
+}
+
+.datepicker.hidden {
+  display: none;
+}
+
+.date-trigger {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 400;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+
+.date-trigger:disabled {
+  cursor: default;
+  color: var(--muted);
+}
+
+.calendar-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 20;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  padding: 12px;
+  width: 280px;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.cal-nav {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.cal-nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.cal-weekdays,
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.cal-weekdays div {
+  text-align: center;
+  font-size: 0.68rem;
+  color: var(--muted);
+  padding-bottom: 4px;
+}
+
+.cal-day {
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  padding: 4px 2px 6px;
+  cursor: default;
+  color: var(--muted);
+  font-size: 0.8rem;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.cal-day .cal-day-num {
+  font-variant-numeric: tabular-nums;
+}
+
+.cal-day .cal-day-price {
+  font-size: 0.6rem;
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cal-day.available {
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.cal-day.available:hover {
+  background: var(--page);
+}
+
+.cal-day.selected {
+  background: var(--primary);
+  color: #fff;
+}
+
+.cal-day.selected .cal-day-price {
+  color: #fff;
+  opacity: 0.85;
 }
 
 .card {

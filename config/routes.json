@@ -11,7 +11,9 @@
     ],
     "sites": [
       "gol"
-    ]
+    ],
+    "fromDate": "2026-10-01",
+    "toDate": "2026-10-10"
   },
   {
     "id": "oct-eze-bsb",
@@ -25,7 +27,9 @@
     ],
     "sites": [
       "gol"
-    ]
+    ],
+    "fromDate": "2026-10-01",
+    "toDate": "2026-10-10"
   },
   {
     "id": "oct-aep-gyn",
@@ -39,7 +43,9 @@
     ],
     "sites": [
       "gol"
-    ]
+    ],
+    "fromDate": "2026-10-01",
+    "toDate": "2026-10-10"
   },
   {
     "id": "oct-aep-bsb",
@@ -53,7 +59,9 @@
     ],
     "sites": [
       "gol"
-    ]
+    ],
+    "fromDate": "2026-10-01",
+    "toDate": "2026-10-10"
   },
   {
     "id": "bue-gyn",

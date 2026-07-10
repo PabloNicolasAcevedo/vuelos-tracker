@@ -144,8 +144,16 @@
     $returnCal.classList.add("hidden");
   }
 
+  // Uses composedPath() instead of evt.target.closest(): the month-nav
+  // buttons re-render the popover's innerHTML on click (replacing themselves
+  // in the DOM), so by the time this bubbles up here evt.target is already
+  // detached and .closest() can no longer find its old .datepicker ancestor
+  // -- composedPath() captures the path as it was at dispatch time, before
+  // any of that mutation happened.
   document.addEventListener("click", (evt) => {
-    if (!evt.target.closest(".datepicker")) closeAllCalendars();
+    const path = evt.composedPath ? evt.composedPath() : [];
+    const insideDatepicker = path.some((el) => el.classList && el.classList.contains("datepicker"));
+    if (!insideDatepicker) closeAllCalendars();
   });
 
   function monthKey(iso) {
@@ -322,16 +330,24 @@
     renderDatesChart();
   }
 
+  // Google Flights aggregates whichever airline is actually cheapest (often
+  // LATAM, which we don't scrape directly) -- show that real airline instead
+  // of the generic "Google Flights" bucket so it doesn't get lost.
+  function siteLabel(site, airline) {
+    if (site === "googleflights" && airline) return `${airline} (vía Google Flights)`;
+    return SITE_LABELS[site] || site;
+  }
+
   function renderSummary(option) {
     const el = document.getElementById("trip-summary");
     const best = option.best;
-    const isMin = option.current[best.site].is_historical_min;
+    const bestCur = option.current[best.site];
     el.classList.remove("hidden");
     el.innerHTML = `
       <div>
         <div class="big">${fmtDisplay(best.price, best.currency)}</div>
-        <div class="sub">mejor precio en ${SITE_LABELS[best.site] || best.site}
-        ${isMin ? '<span class="badge-min">🏆 Mínimo histórico</span>' : ""}</div>
+        <div class="sub">mejor precio en ${siteLabel(best.site, bestCur.airline)}
+        ${bestCur.is_historical_min ? '<span class="badge-min">🏆 Mínimo histórico</span>' : ""}</div>
       </div>
       <div class="sub">
         ${state.route.origin} → ${state.route.destination} · salida ${fmtDate(option.depart)}
@@ -349,7 +365,7 @@
       const cur = option.current[site];
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td><span class="site-cell"><span class="site-dot" style="background:${SITE_COLORS[site] || "#888"}"></span>${SITE_LABELS[site] || site}</span>${
+        <td><span class="site-cell"><span class="site-dot" style="background:${SITE_COLORS[site] || "#888"}"></span>${siteLabel(site, cur.airline)}</span>${
           cur.is_historical_min ? '<span class="badge-min">Mínimo histórico</span>' : ""
         }</td>
         <td class="num">${fmtDisplay(cur.price, cur.currency)}</td>
@@ -454,7 +470,8 @@
             callbacks: {
               label: (item) => {
                 const o = options[item.dataIndex];
-                return ` ${fmtDisplay(o.best.price, o.best.currency)} (${SITE_LABELS[o.best.site] || o.best.site})`;
+                const airline = o.current[o.best.site]?.airline;
+                return ` ${fmtDisplay(o.best.price, o.best.currency)} (${siteLabel(o.best.site, airline)})`;
               },
             },
           },

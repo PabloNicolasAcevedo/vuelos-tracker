@@ -49,7 +49,7 @@ async function run(routes) {
 
   const results = [];
   for (const route of routes) {
-    const departDate = `${route.months[0]}-01`;
+    const departDate = route.fromDate || `${route.months[0]}-01`;
     const returnDate = addDaysToISO(departDate, route.stayNights);
 
     try {

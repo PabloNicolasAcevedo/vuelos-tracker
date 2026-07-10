@@ -318,5 +318,21 @@
   "bue-aep-bsb|2027-02-16|2027-02-26|aerolineas": {
     "lastSentAt": "2026-07-10T12:20:36.828Z",
     "lastPrice": 3520
+  },
+  "oct-aep-bsb|2026-10-01||gol": {
+    "lastSentAt": "2026-07-10T16:14:08.174Z",
+    "lastPrice": 1513
+  },
+  "oct-aep-bsb|2026-10-06||gol": {
+    "lastSentAt": "2026-07-10T16:14:08.174Z",
+    "lastPrice": 1513
+  },
+  "oct-aep-bsb|2026-10-08||gol": {
+    "lastSentAt": "2026-07-10T16:14:08.174Z",
+    "lastPrice": 1568
+  },
+  "oct-aep-bsb|2026-10-10||gol": {
+    "lastSentAt": "2026-07-10T16:14:08.174Z",
+    "lastPrice": 1541
   }
 }

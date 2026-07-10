@@ -74,7 +74,7 @@ async function main() {
 
   if (allResults.length) {
     appendRows(allResults);
-    console.log(`Guardadas ${allResults.length} filas en data/prices.csv`);
+    console.log(`Guardadas ${allResults.length} filas en data/prices/`);
   } else {
     console.log("Sin resultados en esta corrida.");
   }

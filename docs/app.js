@@ -108,6 +108,14 @@
     return fmtMoney(d.value, d.currency);
   }
 
+  // Compact hint for calendar day cells: ARS amounts run 6+ digits (e.g.
+  // 473.357) which never fit a 7-column grid, so round to thousands with a
+  // "k" suffix instead of truncating/overflowing.
+  function fmtCompact(value, currency) {
+    const d = displayPrice(value, currency);
+    return `${Math.round(d.value / 1000)}k`;
+  }
+
   function fmtDate(iso) {
     if (!iso) return "";
     const [y, m, d] = iso.split("-");
@@ -181,7 +189,7 @@
       if (option) classes.push("available");
       if (iso === selectedDate) classes.push("selected");
       const priceHtml = option
-        ? `<span class="cal-day-price">${fmtDisplay(option.best.price, option.best.currency).replace(/[^\d.,]/g, "")}</span>`
+        ? `<span class="cal-day-price">${fmtCompact(option.best.price, option.best.currency)}</span>`
         : "";
       daysHtml += `<button type="button" class="${classes.join(" ")}" data-iso="${iso}" ${option ? "" : "disabled"}>
         <span class="cal-day-num">${day}</span>${priceHtml}
@@ -273,7 +281,10 @@
     for (const route of state.index.routes) {
       const opt = document.createElement("option");
       opt.value = route.id;
-      opt.textContent = `${route.label} (${route.origin} → ${route.destination})`;
+      opt.textContent =
+        route.tripType === "roundtrip"
+          ? `${route.origin} → ${route.destination} · ${route.destination} → ${route.origin}`
+          : `${route.origin} → ${route.destination}`;
       $route.appendChild(opt);
     }
 

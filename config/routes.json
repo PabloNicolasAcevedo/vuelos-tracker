@@ -178,7 +178,8 @@
       "latam",
       "123milhas",
       "maxmilhas",
-      "despegar"
+      "despegar",
+      "googleflights"
     ],
     "stayNights": 10
   },
@@ -201,7 +202,8 @@
       "latam",
       "123milhas",
       "maxmilhas",
-      "despegar"
+      "despegar",
+      "googleflights"
     ],
     "stayNights": 10
   },

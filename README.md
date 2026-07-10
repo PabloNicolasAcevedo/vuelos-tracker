@@ -35,7 +35,7 @@ Cada scraper nuevo se agrega en `scrapers/<sitio>.js` (misma forma que `scrapers
 
 ### Descartados
 
-- **LATAM**: bloqueado por anti-bot (Akamai) incluso navegando "orgánicamente" desde el home antes de buscar — la sesión automatizada nunca recibe resultados reales, ni con el deep-link ni con la API interna del calendario de precios.
+- **LATAM**: bloqueado por anti-bot (Akamai) incluso navegando "orgánicamente" desde el home antes de buscar — la sesión automatizada nunca recibe resultados reales, ni con el deep-link ni con la API interna del calendario de precios. Importante para leer los datos: **Santiago-Brasília (`scl-bsb`) la vuela LATAM, no Gol** -- por eso esa ruta nunca tuvo ni va a tener datos de Gol/Aerolíneas (no es un bug, no venden ese itinerario), y depende enteramente de que Google Flights encuentre a LATAM como resultado.
 - **123 Milhas**: pendiente de reintentar. No tiene protección anti-bot fuerte (su API de precios responde bien a tráfico automatizado en rutas domésticas brasileñas), pero las consultas directas a esa API dieron 0 resultados para nuestras rutas internacionales. **Esa conclusión de "sin inventario" era incorrecta** (se puede comprar esa ruta ahora mismo en el sitio) — lo más probable es que la consulta necesite el flujo completo de navegador real en vez de la API directa, o algún parámetro que no se identificó. Queda para reinvestigar, no descartado en firme.
 - **Max Milhas** y **Despegar**: nunca se llegaron a investigar (se priorizó LATAM y 123 Milhas primero); quedan fuera de los objetivos actuales por ahora.
 

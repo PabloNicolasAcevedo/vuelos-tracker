@@ -1,6 +1,9 @@
 # vuelos-tracker
 
-Trackea precios de vuelos.
+Trackea precios de vuelos. Marca de cara al usuario: **Chebora** (ver [`design/BRAND.md`](design/BRAND.md)).
+
+Propuesta de sistema de diseño para los mails, pendiente de aplicar por la migración a MJML:
+[`design/email-design-system.md`](design/email-design-system.md) + [`design/tokens.json`](design/tokens.json).
 
 Rutas, persona y tipo de viaje (`oneway`/`roundtrip`) configurables en [`config/routes.json`](config/routes.json). Ambos tipos de viaje escanean cada día del mes objetivo (el calendario de cada sitio ya devuelve el mes completo en una sola consulta); las rutas `roundtrip` usan `stayNights` (10 noches fijas) para emparejar cada día de ida con su vuelta, evitando la explosión combinatoria de probar todas las combinaciones de fechas posibles.
 

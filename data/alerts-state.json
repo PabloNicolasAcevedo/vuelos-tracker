@@ -2258,5 +2258,9 @@
   "jul-aep-bsb|2026-08-03||gol": {
     "lastSentAt": "2026-07-12T09:51:36.852Z",
     "lastPrice": 1430
+  },
+  "bue-gyn|2027-02-28|2027-03-10|gol": {
+    "lastSentAt": "2026-07-12T14:53:41.334Z",
+    "lastPrice": 3034
   }
 }

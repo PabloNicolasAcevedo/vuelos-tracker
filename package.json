@@ -12,6 +12,7 @@
   "type": "commonjs",
   "dependencies": {
     "csv-parse": "^7.0.1",
+    "mjml": "^5.4.0",
     "nodemailer": "^9.0.3",
     "playwright": "^1.61.1",
     "playwright-extra": "^4.3.6",

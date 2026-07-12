@@ -90,7 +90,7 @@ async function main() {
   }
 
   buildSummaries();
-  console.log("Regenerados data/resumen-pablo.csv y data/resumen-david.csv");
+  console.log("Regenerados data/resumen-pablo.csv, data/resumen-david.csv y data/resumen-jessica.csv");
 
   try {
     await buildSiteData();

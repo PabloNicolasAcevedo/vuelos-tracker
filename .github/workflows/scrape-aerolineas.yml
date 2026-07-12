@@ -46,6 +46,7 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           PABLO_EMAIL: ${{ secrets.PABLO_EMAIL }}
           DAVID_EMAIL: ${{ secrets.DAVID_EMAIL }}
+          JESSICA_EMAIL: ${{ secrets.JESSICA_EMAIL }}
           IS_TEST_RUN: ${{ github.event_name == 'workflow_dispatch' }}
           SITES: aerolineas
           EMAIL_MODE: alerts
@@ -55,7 +56,7 @@ jobs:
         run: |
           git config user.name "vuelos-tracker-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/prices/ data/resumen-pablo.csv data/resumen-david.csv data/alerts-state.json docs/data/
+          git add data/prices/ data/resumen-pablo.csv data/resumen-david.csv data/resumen-jessica.csv data/alerts-state.json docs/data/
           git diff --cached --quiet && echo "Sin cambios" && exit 0
           git commit -m "Actualiza precios (aerolineas) $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           # See scrape.yml: rebase-and-retry against concurrent pushes from

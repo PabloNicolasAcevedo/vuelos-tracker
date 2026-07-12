@@ -1,19 +1,22 @@
-name: Daily digest email
+name: Send welcome email
 
 on:
-  schedule:
-    # Once a day at ~06:13 ART: the full summary email (dashboard + best price
-    # per route) as a safety net while the alert system is being calibrated.
-    # No scraping and no Playwright -- it rebuilds the summaries from the
-    # already-committed history, so the job takes ~1 minute.
-    - cron: "13 9 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      person:
+        description: "Persona a dar de alta (pablo, david o jessica)"
+        required: true
+        type: choice
+        options:
+          - pablo
+          - david
+          - jessica
 
 permissions:
   contents: write
 
 jobs:
-  digest:
+  welcome:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -26,27 +29,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Rebuild summaries and send digest
+      - name: Rebuild summaries and send welcome email
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           PABLO_EMAIL: ${{ secrets.PABLO_EMAIL }}
           DAVID_EMAIL: ${{ secrets.DAVID_EMAIL }}
           JESSICA_EMAIL: ${{ secrets.JESSICA_EMAIL }}
-          IS_TEST_RUN: ${{ github.event_name == 'workflow_dispatch' }}
+          PERSON: ${{ inputs.person }}
         run: |
           node -e "
             const { buildSummaries } = require('./lib/summary');
-            const { sendSummaryEmails } = require('./lib/email');
+            const { sendWelcomeEmail } = require('./lib/email');
             buildSummaries();
-            sendSummaryEmails().then(() => console.log('Digest enviado')).catch((err) => { console.error(err); process.exit(1); });
+            sendWelcomeEmail(process.env.PERSON).then(() => console.log('Listo')).catch((err) => { console.error(err); process.exit(1); });
           "
 
-      - name: Commit announcement marker (if changed)
+      - name: Commit welcomed marker (if changed)
         run: |
           git config user.name "vuelos-tracker-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/announcement-sent.json
+          git add data/welcomed-*.json
           git diff --cached --quiet && echo "Sin cambios" && exit 0
-          git commit -m "Marca el anuncio de novedades como enviado"
+          git commit -m "Marca el email de bienvenida como enviado ($PERSON)"
           git push
+        env:
+          PERSON: ${{ inputs.person }}

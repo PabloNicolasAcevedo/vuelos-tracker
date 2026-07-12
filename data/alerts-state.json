@@ -2254,5 +2254,9 @@
   "scl-gyn|2026-12-18|2026-12-28|googleflights": {
     "lastSentAt": "2026-07-12T05:24:12.860Z",
     "lastPrice": 2306
+  },
+  "jul-aep-bsb|2026-08-03||gol": {
+    "lastSentAt": "2026-07-12T09:51:36.852Z",
+    "lastPrice": 1430
   }
 }

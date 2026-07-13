@@ -2274,5 +2274,9 @@
   "bue-aep-gyn|2026-12-18|2026-12-28|aerolineas": {
     "lastSentAt": "2026-07-12T22:14:22.454Z",
     "lastPrice": 3223
+  },
+  "bue-gyn|2026-12-18|2026-12-28|gol": {
+    "lastSentAt": "2026-07-13T16:19:28.237Z",
+    "lastPrice": 3203
   }
 }

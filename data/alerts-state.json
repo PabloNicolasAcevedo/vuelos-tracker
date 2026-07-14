@@ -2306,5 +2306,13 @@
   "oct-aep-bsb|2026-10-03||gol": {
     "lastSentAt": "2026-07-14T15:19:17.060Z",
     "lastPrice": 1471
+  },
+  "bue-aep-gyn|2027-02-27|2027-03-09|gol": {
+    "lastSentAt": "2026-07-14T20:54:31.389Z",
+    "lastPrice": 2991
+  },
+  "bue-aep-gyn|2027-02-28|2027-03-10|gol": {
+    "lastSentAt": "2026-07-14T20:54:31.389Z",
+    "lastPrice": 3040
   }
 }

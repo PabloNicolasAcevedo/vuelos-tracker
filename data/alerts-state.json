@@ -984,12 +984,12 @@
     "lastPrice": 1461
   },
   "oct-aep-gyn|2026-10-09||gol": {
-    "lastSentAt": "2026-07-11T05:01:14.262Z",
-    "lastPrice": 1523
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1515
   },
   "oct-aep-gyn|2026-10-10||gol": {
-    "lastSentAt": "2026-07-11T05:01:14.262Z",
-    "lastPrice": 1523
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1515
   },
   "bue-aep-bsb|2027-02-19|2027-03-01|gol": {
     "lastSentAt": "2026-07-12T20:49:14.746Z",
@@ -1128,12 +1128,12 @@
     "lastPrice": 1563
   },
   "oct-eze-bsb|2026-10-08||gol": {
-    "lastSentAt": "2026-07-11T05:01:14.262Z",
-    "lastPrice": 1618
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1748
   },
   "oct-eze-bsb|2026-10-09||gol": {
-    "lastSentAt": "2026-07-11T05:01:14.262Z",
-    "lastPrice": 1536
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1748
   },
   "oct-eze-gyn|2026-10-01||gol": {
     "lastSentAt": "2026-07-15T04:58:48.369Z",
@@ -1164,16 +1164,16 @@
     "lastPrice": 1748
   },
   "oct-eze-gyn|2026-10-08||gol": {
-    "lastSentAt": "2026-07-11T05:01:14.262Z",
-    "lastPrice": 1760
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1748
   },
   "oct-eze-gyn|2026-10-09||gol": {
-    "lastSentAt": "2026-07-11T05:01:14.262Z",
-    "lastPrice": 1760
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1748
   },
   "oct-eze-gyn|2026-10-10||gol": {
-    "lastSentAt": "2026-07-11T05:01:14.262Z",
-    "lastPrice": 1760
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1748
   },
   "bue-bsb|2026-12-18|2026-12-28|googleflights": {
     "lastSentAt": "2026-07-11T05:01:14.262Z",
@@ -2354,5 +2354,25 @@
   "bue-bsb|2027-02-18|2027-02-28|aerolineas": {
     "lastSentAt": "2026-07-15T08:44:16.110Z",
     "lastPrice": 3344
+  },
+  "jul-aep-gyn|2026-07-30||gol": {
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1746
+  },
+  "jul-eze-gyn|2026-08-02||gol": {
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1748
+  },
+  "oct-aep-bsb|2026-10-09||gol": {
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1515
+  },
+  "jul-aep-bsb|2026-07-30||gol": {
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1746
+  },
+  "oct-eze-bsb|2026-10-10||gol": {
+    "lastSentAt": "2026-07-15T15:18:23.718Z",
+    "lastPrice": 1748
   }
 }

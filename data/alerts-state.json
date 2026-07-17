@@ -984,8 +984,8 @@
     "lastPrice": 1460
   },
   "oct-aep-gyn|2026-10-09||gol": {
-    "lastSentAt": "2026-07-15T15:18:23.718Z",
-    "lastPrice": 1515
+    "lastSentAt": "2026-07-17T15:27:40.032Z",
+    "lastPrice": 1464
   },
   "oct-aep-gyn|2026-10-10||gol": {
     "lastSentAt": "2026-07-15T15:18:23.718Z",
@@ -1128,12 +1128,12 @@
     "lastPrice": 1553
   },
   "oct-eze-bsb|2026-10-08||gol": {
-    "lastSentAt": "2026-07-15T20:55:50.129Z",
-    "lastPrice": 1553
+    "lastSentAt": "2026-07-17T15:27:40.032Z",
+    "lastPrice": 1560
   },
   "oct-eze-bsb|2026-10-09||gol": {
-    "lastSentAt": "2026-07-15T15:18:23.718Z",
-    "lastPrice": 1748
+    "lastSentAt": "2026-07-17T15:27:40.032Z",
+    "lastPrice": 1533
   },
   "oct-eze-gyn|2026-10-01||gol": {
     "lastSentAt": "2026-07-15T04:58:48.369Z",
@@ -1164,12 +1164,12 @@
     "lastPrice": 1748
   },
   "oct-eze-gyn|2026-10-08||gol": {
-    "lastSentAt": "2026-07-15T15:18:23.718Z",
-    "lastPrice": 1748
+    "lastSentAt": "2026-07-17T15:27:40.032Z",
+    "lastPrice": 1756
   },
   "oct-eze-gyn|2026-10-09||gol": {
-    "lastSentAt": "2026-07-15T15:18:23.718Z",
-    "lastPrice": 1748
+    "lastSentAt": "2026-07-17T15:27:40.032Z",
+    "lastPrice": 1756
   },
   "oct-eze-gyn|2026-10-10||gol": {
     "lastSentAt": "2026-07-15T15:18:23.718Z",
@@ -2356,8 +2356,8 @@
     "lastPrice": 3343
   },
   "jul-aep-gyn|2026-07-30||gol": {
-    "lastSentAt": "2026-07-15T15:18:23.718Z",
-    "lastPrice": 1746
+    "lastSentAt": "2026-07-17T15:27:40.032Z",
+    "lastPrice": 1754
   },
   "jul-eze-gyn|2026-08-02||gol": {
     "lastSentAt": "2026-07-15T15:18:23.718Z",
@@ -2416,8 +2416,8 @@
     "lastPrice": 1423
   },
   "jul-aep-bsb|2026-08-07||gol": {
-    "lastSentAt": "2026-07-15T20:55:50.129Z",
-    "lastPrice": 1420
+    "lastSentAt": "2026-07-17T15:27:40.032Z",
+    "lastPrice": 1077
   },
   "jul-aep-bsb|2026-08-08||gol": {
     "lastSentAt": "2026-07-15T20:55:50.129Z",
@@ -2482,5 +2482,9 @@
   "bue-bsb|2027-01-28|2027-02-07|gol": {
     "lastSentAt": "2026-07-16T15:43:29.451Z",
     "lastPrice": 3814
+  },
+  "jul-eze-gyn|2026-07-30||gol": {
+    "lastSentAt": "2026-07-17T15:27:40.032Z",
+    "lastPrice": 1756
   }
 }

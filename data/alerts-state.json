@@ -2376,8 +2376,8 @@
     "lastPrice": 1526
   },
   "bue-aep-gyn|2027-01-13|2027-01-23|aerolineas": {
-    "lastSentAt": "2026-07-15T16:55:04.866Z",
-    "lastPrice": 3573
+    "lastSentAt": "2026-07-17T22:20:15.869Z",
+    "lastPrice": 3589
   },
   "bue-aep-gyn|2027-02-01|2027-02-11|aerolineas": {
     "lastSentAt": "2026-07-17T16:45:23.191Z",
@@ -2486,5 +2486,9 @@
   "jul-eze-gyn|2026-07-30||gol": {
     "lastSentAt": "2026-07-17T15:27:40.032Z",
     "lastPrice": 1756
+  },
+  "bue-gyn|2027-01-13|2027-01-23|aerolineas": {
+    "lastSentAt": "2026-07-17T22:20:15.869Z",
+    "lastPrice": 3589
   }
 }

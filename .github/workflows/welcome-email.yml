@@ -4,13 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       person:
-        description: "Persona a dar de alta (pablo, david o jessica)"
+        description: "Persona a dar de alta (pablo o david)"
         required: true
         type: choice
         options:
           - pablo
           - david
-          - jessica
 
 permissions:
   contents: write
@@ -35,7 +34,6 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           PABLO_EMAIL: ${{ secrets.PABLO_EMAIL }}
           DAVID_EMAIL: ${{ secrets.DAVID_EMAIL }}
-          JESSICA_EMAIL: ${{ secrets.JESSICA_EMAIL }}
           PERSON: ${{ inputs.person }}
         run: |
           node -e "

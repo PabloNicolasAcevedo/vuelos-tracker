@@ -32,7 +32,6 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           PABLO_EMAIL: ${{ secrets.PABLO_EMAIL }}
           DAVID_EMAIL: ${{ secrets.DAVID_EMAIL }}
-          JESSICA_EMAIL: ${{ secrets.JESSICA_EMAIL }}
           IS_TEST_RUN: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
           node -e "

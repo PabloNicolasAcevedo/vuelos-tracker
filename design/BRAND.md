@@ -74,6 +74,6 @@ calidez informal de 123milhas (cercanía, sin ser gritón). En la práctica:
   + texto conciso ("Bajó $12.400 desde la última actualización") ya comunica que vale la pena
   mirarlo — no hace falta "🔥" ni mayúsculas.
 - **Nada de humor forzado ni jerga de venta agresiva** ("¡Última oportunidad!", "¡No te lo
-  pierdas!"). El destinatario es alguien del círculo cercano (Pablo/David/Jessica), no un lead frío
+  pierdas!"). El destinatario es alguien del círculo cercano (Pablo/David), no un lead frío
   — el tono es "te aviso porque te sirve", no "te vendo".
 - Ver `design/email-design-system.md` para el detalle de qué reemplaza a cada emoji actual.

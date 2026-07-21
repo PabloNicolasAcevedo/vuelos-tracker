@@ -15,7 +15,7 @@ npm run scrape
 
 Esto actualiza:
 - `data/prices/<YYYY-MM>.csv`: histórico crudo particionado por mes de scrapeo, una fila por sitio/ruta/fecha/corrida (nunca se sobreescribe, solo se agrega). Particionado para no chocar con el límite de 100MB por archivo de GitHub.
-- `data/resumen-pablo.csv`, `data/resumen-david.csv` y `data/resumen-jessica.csv`: se regeneran enteros en cada corrida a partir del histórico. Formato pivotado (una fila por ruta+fecha(s), una columna por sitio) pensado para revisión manual y decidir cuándo comprar — incluyen `mejor_precio` y `mejor_sitio` calculados siempre a partir del scrape más reciente de cada sitio.
+- `data/resumen-pablo.csv` y `data/resumen-david.csv`: se regeneran enteros en cada corrida a partir del histórico. Formato pivotado (una fila por ruta+fecha(s), una columna por sitio) pensado para revisión manual y decidir cuándo comprar — incluyen `mejor_precio` y `mejor_sitio` calculados siempre a partir del scrape más reciente de cada sitio.
 - `docs/data/`: los JSON que consume el sitio estático (ver abajo).
 
 Variables útiles: `SITES=gol,aerolineas` limita qué sitios se scrapean; `EMAIL_MODE=none|digest|alerts` controla el envío de emails (default `digest`).
@@ -51,7 +51,7 @@ Tres workflows, todos con jitter aleatorio y minuto corrido (no `:00`) para esqu
 
 Ambos workflows de scrape corren con `EMAIL_MODE=alerts` y commitean el histórico + resúmenes + `docs/data/` + `data/alerts-state.json`. Si dos corridas se pisan, el push reintenta con rebase; las particiones CSV usan `merge=union` (`.gitattributes`) porque son append-only.
 
-Para disparar cualquiera manualmente: pestaña *Actions* → *Run workflow* (en corridas manuales el email va solo a Pablo, con prefijo "[TEST]" en el asunto — David y Jessica nunca reciben corridas de prueba).
+Para disparar cualquiera manualmente: pestaña *Actions* → *Run workflow* (en corridas manuales el email va solo a Pablo, con prefijo "[TEST]" en el asunto — David nunca recibe corridas de prueba).
 
 ## Emails: alertas + digest diario + bienvenida
 
@@ -59,7 +59,7 @@ Para disparar cualquiera manualmente: pestaña *Actions* → *Run workflow* (en 
 - **Digest diario** (`digest.yml`): el email resumen de siempre (dashboard, mejor precio por ruta, sección Google Flights, CSVs adjuntos), una vez por día como red de seguridad mientras se calibran los umbrales de alerta. El asunto siempre saluda por nombre ("Buenos días {Nombre}: acá está tu resumen diario ✈️"), con una variante si hubo nuevo mínimo o si bajaron precios. El link al sitio del tracker va en el pie de **todos** los emails (resumen, alerta y bienvenida), no solo en el primero.
 - **Bienvenida** (`welcome-email.yml`, dispara `sendWelcomeEmail` en `lib/email.js`): email único por persona (marcador `data/welcomed-<persona>.json`, mismo patrón que `data/announcement-sent.json`) que explica cómo funciona el tracker (resumen diario, alertas, sitio web) y ya incluye el primer resumen real con los precios del día.
 
-Todos requieren los secrets `GMAIL_USER`, `GMAIL_APP_PASSWORD` (contraseña de aplicación de Gmail), `PABLO_EMAIL`, `DAVID_EMAIL` y `JESSICA_EMAIL`; si falta alguno, el envío para esa persona se salta silenciosamente (el digest y las alertas de Pablo/David no dependen de que `JESSICA_EMAIL` esté configurado). Cada tarjeta incluye un link directo para comprar esa fecha/ruta en el sitio ganador, y si el precio está en reales muestra también su equivalente aproximado en pesos argentinos (cotización del día vía `open.er-api.com`, sin API key).
+Todos requieren los secrets `GMAIL_USER`, `GMAIL_APP_PASSWORD` (contraseña de aplicación de Gmail), `PABLO_EMAIL` y `DAVID_EMAIL`; si falta alguno, el envío para esa persona se salta silenciosamente. Cada tarjeta incluye un link directo para comprar esa fecha/ruta en el sitio ganador, y si el precio está en reales muestra también su equivalente aproximado en pesos argentinos (cotización del día vía `open.er-api.com`, sin API key).
 
 ### HTML de los emails: MJML
 

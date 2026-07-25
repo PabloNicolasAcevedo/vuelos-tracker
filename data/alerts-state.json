@@ -2638,5 +2638,21 @@
   "bue-aep-gyn|2026-12-31|2027-01-10|gol": {
     "lastSentAt": "2026-07-24T10:18:08.194Z",
     "lastPrice": 1861
+  },
+  "bue-aep-gyn|2026-12-19|2026-12-29|gol": {
+    "lastSentAt": "2026-07-25T09:37:29.081Z",
+    "lastPrice": 1475
+  },
+  "bue-aep-gyn|2026-12-18|2026-12-28|gol": {
+    "lastSentAt": "2026-07-25T09:37:29.081Z",
+    "lastPrice": 1510
+  },
+  "bue-aep-gyn|2026-12-20|2026-12-30|gol": {
+    "lastSentAt": "2026-07-25T09:37:29.081Z",
+    "lastPrice": 1567
+  },
+  "bue-aep-gyn|2026-12-21|2026-12-31|gol": {
+    "lastSentAt": "2026-07-25T09:37:29.081Z",
+    "lastPrice": 1524
   }
 }

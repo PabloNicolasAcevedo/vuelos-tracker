@@ -4,8 +4,8 @@
     "lastPrice": 1856
   },
   "bue-aep-bsb|2027-01-02|2027-01-12|aerolineas": {
-    "lastSentAt": "2026-07-28T03:39:59.675Z",
-    "lastPrice": 3083
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 3367
   },
   "bue-aep-bsb|2027-01-03|2027-01-13|aerolineas": {
     "lastSentAt": "2026-07-28T17:01:02.040Z",
@@ -124,8 +124,8 @@
     "lastPrice": 3596
   },
   "bue-aep-gyn|2027-02-02|2027-02-12|aerolineas": {
-    "lastSentAt": "2026-07-17T16:45:23.191Z",
-    "lastPrice": 1953
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-02-09|2027-02-19|aerolineas": {
     "lastSentAt": "2026-07-23T03:57:05.016Z",
@@ -848,44 +848,44 @@
     "lastPrice": 3566
   },
   "bue-aep-gyn|2027-01-22|2027-02-01|aerolineas": {
-    "lastSentAt": "2026-07-15T03:47:20.672Z",
-    "lastPrice": 3523
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-01-23|2027-02-02|aerolineas": {
-    "lastSentAt": "2026-07-15T03:47:20.672Z",
-    "lastPrice": 3523
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 2102
   },
   "bue-aep-gyn|2027-01-24|2027-02-03|aerolineas": {
-    "lastSentAt": "2026-07-23T03:57:05.016Z",
-    "lastPrice": 3566
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-01-25|2027-02-04|aerolineas": {
-    "lastSentAt": "2026-07-23T03:57:05.016Z",
-    "lastPrice": 3566
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-01-26|2027-02-05|aerolineas": {
-    "lastSentAt": "2026-07-23T03:57:05.016Z",
-    "lastPrice": 3566
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-01-27|2027-02-06|aerolineas": {
-    "lastSentAt": "2026-07-22T03:57:22.323Z",
-    "lastPrice": 3575
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-01-28|2027-02-07|aerolineas": {
-    "lastSentAt": "2026-07-23T03:57:05.016Z",
-    "lastPrice": 3571
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-01-29|2027-02-08|aerolineas": {
-    "lastSentAt": "2026-07-23T03:57:05.016Z",
-    "lastPrice": 3566
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-01-30|2027-02-09|aerolineas": {
-    "lastSentAt": "2026-07-23T03:57:05.016Z",
-    "lastPrice": 3566
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-01-31|2027-02-10|aerolineas": {
-    "lastSentAt": "2026-07-22T03:57:22.323Z",
-    "lastPrice": 3575
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2026-12-21|2026-12-31|aerolineas": {
     "lastSentAt": "2026-07-21T03:49:10.501Z",
@@ -1952,8 +1952,8 @@
     "lastPrice": 1732
   },
   "bue-bsb|2027-01-02|2027-01-12|aerolineas": {
-    "lastSentAt": "2026-07-28T11:35:31.205Z",
-    "lastPrice": 3083
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 3367
   },
   "bue-bsb|2027-01-23|2027-02-02|aerolineas": {
     "lastSentAt": "2026-07-29T09:22:20.820Z",
@@ -2380,20 +2380,20 @@
     "lastPrice": 3591
   },
   "bue-aep-gyn|2027-02-01|2027-02-11|aerolineas": {
-    "lastSentAt": "2026-07-17T16:45:23.191Z",
-    "lastPrice": 1953
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-02-03|2027-02-13|aerolineas": {
-    "lastSentAt": "2026-07-17T16:45:23.191Z",
-    "lastPrice": 1953
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-02-04|2027-02-14|aerolineas": {
-    "lastSentAt": "2026-07-17T16:45:23.191Z",
-    "lastPrice": 1953
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "bue-aep-gyn|2027-02-05|2027-02-15|aerolineas": {
-    "lastSentAt": "2026-07-17T16:45:23.191Z",
-    "lastPrice": 1953
+    "lastSentAt": "2026-07-29T14:42:52.862Z",
+    "lastPrice": 1960
   },
   "jul-aep-bsb|2026-08-05||gol": {
     "lastSentAt": "2026-07-17T05:06:21.094Z",

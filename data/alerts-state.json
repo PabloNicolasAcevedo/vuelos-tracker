@@ -1104,32 +1104,32 @@
     "lastPrice": 1484
   },
   "oct-eze-bsb|2026-10-03||gol": {
-    "lastSentAt": "2026-07-31T05:20:11.016Z",
-    "lastPrice": 1188
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1189
   },
   "oct-eze-bsb|2026-10-01||gol": {
-    "lastSentAt": "2026-07-31T05:20:11.016Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1190
   },
   "oct-eze-bsb|2026-10-04||gol": {
-    "lastSentAt": "2026-07-31T05:20:11.016Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1190
   },
   "oct-eze-bsb|2026-10-05||gol": {
-    "lastSentAt": "2026-07-31T05:20:11.016Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1190
   },
   "oct-eze-bsb|2026-10-06||gol": {
-    "lastSentAt": "2026-07-31T05:20:11.016Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1190
   },
   "oct-eze-bsb|2026-10-07||gol": {
-    "lastSentAt": "2026-07-31T05:20:11.016Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1190
   },
   "oct-eze-bsb|2026-10-08||gol": {
-    "lastSentAt": "2026-07-31T05:20:11.016Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1190
   },
   "oct-eze-bsb|2026-10-09||gol": {
     "lastSentAt": "2026-07-31T05:20:11.016Z",
@@ -1376,8 +1376,8 @@
     "lastPrice": 3426
   },
   "scl-gyn|2027-01-15|2027-01-25|gol": {
-    "lastSentAt": "2026-07-30T21:11:38.397Z",
-    "lastPrice": 3457
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3428
   },
   "scl-gyn|2027-01-16|2027-01-26|gol": {
     "lastSentAt": "2026-07-31T05:20:11.016Z",
@@ -1756,8 +1756,8 @@
     "lastPrice": 1468
   },
   "bue-gyn|2026-12-18|2026-12-28|googleflights": {
-    "lastSentAt": "2026-07-28T05:11:13.745Z",
-    "lastPrice": 3581
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3550
   },
   "bue-aep-gyn|2026-12-18|2026-12-28|googleflights": {
     "lastSentAt": "2026-07-22T05:17:12.764Z",
@@ -2315,10 +2315,6 @@
     "lastSentAt": "2026-07-28T20:55:47.039Z",
     "lastPrice": 1516
   },
-  "jul-eze-gyn|2026-07-31||gol": {
-    "lastSentAt": "2026-07-15T04:58:48.369Z",
-    "lastPrice": 1748
-  },
   "jul-eze-gyn|2026-08-03||gol": {
     "lastSentAt": "2026-07-15T04:58:48.369Z",
     "lastPrice": 1748
@@ -2391,10 +2387,6 @@
     "lastSentAt": "2026-07-17T05:06:21.094Z",
     "lastPrice": 1077
   },
-  "jul-aep-bsb|2026-07-31||gol": {
-    "lastSentAt": "2026-07-20T15:55:47.391Z",
-    "lastPrice": 1539
-  },
   "jul-aep-bsb|2026-08-04||gol": {
     "lastSentAt": "2026-07-15T20:55:50.129Z",
     "lastPrice": 1420
@@ -2418,10 +2410,6 @@
   "jul-eze-bsb|2026-08-08||gol": {
     "lastSentAt": "2026-07-15T20:55:50.129Z",
     "lastPrice": 1422
-  },
-  "jul-eze-bsb|2026-07-31||gol": {
-    "lastSentAt": "2026-07-15T20:55:50.129Z",
-    "lastPrice": 1580
   },
   "jul-eze-bsb|2026-08-01||gol": {
     "lastSentAt": "2026-07-20T21:13:34.236Z",
@@ -2452,8 +2440,8 @@
     "lastPrice": 1423
   },
   "oct-eze-bsb|2026-10-02||gol": {
-    "lastSentAt": "2026-07-31T05:20:11.016Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1190
   },
   "bue-gyn|2027-02-23|2027-03-05|gol": {
     "lastSentAt": "2026-07-16T05:10:37.759Z",
@@ -2504,8 +2492,8 @@
     "lastPrice": 1579
   },
   "bue-aep-gyn|2026-12-24|2027-01-03|gol": {
-    "lastSentAt": "2026-07-24T10:18:08.194Z",
-    "lastPrice": 1587
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1510
   },
   "bue-aep-gyn|2027-01-05|2027-01-15|aerolineas": {
     "lastSentAt": "2026-07-19T22:23:08.700Z",
@@ -2528,8 +2516,8 @@
     "lastPrice": 3958
   },
   "scl-gyn|2027-01-04|2027-01-14|gol": {
-    "lastSentAt": "2026-07-28T05:11:13.745Z",
-    "lastPrice": 3958
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3692
   },
   "scl-gyn|2027-01-07|2027-01-17|gol": {
     "lastSentAt": "2026-07-20T21:13:34.236Z",
@@ -2548,8 +2536,8 @@
     "lastPrice": 3454
   },
   "scl-gyn|2027-01-19|2027-01-29|gol": {
-    "lastSentAt": "2026-07-30T21:11:38.397Z",
-    "lastPrice": 3190
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3164
   },
   "scl-gyn|2027-01-24|2027-02-03|gol": {
     "lastSentAt": "2026-07-20T21:13:34.236Z",
@@ -2560,8 +2548,8 @@
     "lastPrice": 3428
   },
   "scl-gyn|2027-01-18|2027-01-28|gol": {
-    "lastSentAt": "2026-07-30T21:11:38.397Z",
-    "lastPrice": 3062
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3037
   },
   "bue-gyn|2027-02-01|2027-02-11|aerolineas": {
     "lastSentAt": "2026-07-21T11:31:54.271Z",
@@ -2580,64 +2568,64 @@
     "lastPrice": 1950
   },
   "bue-aep-bsb|2026-12-18|2026-12-28|googleflights": {
-    "lastSentAt": "2026-07-22T05:17:12.764Z",
-    "lastPrice": 2891
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 2683
   },
   "bue-bsb|2027-01-07|2027-01-17|aerolineas": {
     "lastSentAt": "2026-07-31T14:42:36.688Z",
     "lastPrice": 3957
   },
   "bue-aep-gyn|2026-12-25|2027-01-04|gol": {
-    "lastSentAt": "2026-07-24T10:18:08.194Z",
-    "lastPrice": 1508
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1509
   },
   "bue-aep-gyn|2026-12-22|2027-01-01|gol": {
-    "lastSentAt": "2026-07-24T10:18:08.194Z",
-    "lastPrice": 1861
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1673
   },
   "bue-aep-gyn|2026-12-23|2027-01-02|gol": {
-    "lastSentAt": "2026-07-24T10:18:08.194Z",
-    "lastPrice": 1568
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1672
   },
   "bue-aep-gyn|2026-12-26|2027-01-05|gol": {
-    "lastSentAt": "2026-07-24T10:18:08.194Z",
-    "lastPrice": 2066
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1831
   },
   "bue-aep-gyn|2026-12-27|2027-01-06|gol": {
-    "lastSentAt": "2026-07-24T10:18:08.194Z",
-    "lastPrice": 1861
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1831
   },
   "bue-aep-gyn|2026-12-28|2027-01-07|gol": {
-    "lastSentAt": "2026-07-24T10:18:08.194Z",
-    "lastPrice": 1963
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1831
   },
   "bue-aep-gyn|2026-12-29|2027-01-08|gol": {
-    "lastSentAt": "2026-07-24T10:18:08.194Z",
-    "lastPrice": 1963
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1831
   },
   "bue-aep-gyn|2026-12-30|2027-01-09|gol": {
     "lastSentAt": "2026-07-24T10:18:08.194Z",
     "lastPrice": 1963
   },
   "bue-aep-gyn|2026-12-31|2027-01-10|gol": {
-    "lastSentAt": "2026-07-24T10:18:08.194Z",
-    "lastPrice": 1861
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1570
   },
   "bue-aep-gyn|2026-12-19|2026-12-29|gol": {
-    "lastSentAt": "2026-07-25T09:37:29.081Z",
-    "lastPrice": 1475
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1533
   },
   "bue-aep-gyn|2026-12-18|2026-12-28|gol": {
-    "lastSentAt": "2026-07-25T09:37:29.081Z",
-    "lastPrice": 1510
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1515
   },
   "bue-aep-gyn|2026-12-20|2026-12-30|gol": {
-    "lastSentAt": "2026-07-25T09:37:29.081Z",
-    "lastPrice": 1567
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1672
   },
   "bue-aep-gyn|2026-12-21|2026-12-31|gol": {
-    "lastSentAt": "2026-07-25T09:37:29.081Z",
-    "lastPrice": 1524
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1527
   },
   "bue-aep-gyn|2026-12-31|2027-01-10|aerolineas": {
     "lastSentAt": "2026-07-26T22:23:38.130Z",
@@ -2674,5 +2662,117 @@
   "bue-aep-gyn|2027-01-07|2027-01-17|aerolineas": {
     "lastSentAt": "2026-07-31T14:42:36.688Z",
     "lastPrice": 4276
+  },
+  "bue-aep-gyn|2027-01-19|2027-01-29|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1461
+  },
+  "bue-aep-gyn|2027-01-01|2027-01-11|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-02|2027-01-12|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1934
+  },
+  "bue-aep-gyn|2027-01-03|2027-01-13|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1955
+  },
+  "bue-aep-gyn|2027-01-04|2027-01-14|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1766
+  },
+  "bue-aep-gyn|2027-01-05|2027-01-15|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-06|2027-01-16|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-07|2027-01-17|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-08|2027-01-18|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-09|2027-01-19|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-10|2027-01-20|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-11|2027-01-21|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-12|2027-01-22|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-13|2027-01-23|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-14|2027-01-24|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-15|2027-01-25|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1749
+  },
+  "bue-aep-gyn|2027-01-16|2027-01-26|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1831
+  },
+  "bue-aep-gyn|2027-01-17|2027-01-27|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1831
+  },
+  "bue-aep-gyn|2027-01-18|2027-01-28|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1831
+  },
+  "bue-aep-gyn|2027-01-20|2027-01-30|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1461
+  },
+  "bue-aep-gyn|2027-01-21|2027-01-31|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 1461
+  },
+  "bue-aep-gyn|2027-01-23|2027-02-02|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3281
+  },
+  "bue-aep-gyn|2027-01-25|2027-02-04|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3428
+  },
+  "bue-aep-gyn|2027-01-26|2027-02-05|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3569
+  },
+  "bue-aep-gyn|2027-01-27|2027-02-06|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3428
+  },
+  "bue-aep-gyn|2027-01-28|2027-02-07|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3428
+  },
+  "bue-aep-gyn|2027-01-30|2027-02-09|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3428
+  },
+  "bue-aep-gyn|2027-01-31|2027-02-10|gol": {
+    "lastSentAt": "2026-08-01T05:24:24.279Z",
+    "lastPrice": 3569
   }
 }

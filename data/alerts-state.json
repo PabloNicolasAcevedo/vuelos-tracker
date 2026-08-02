@@ -1132,8 +1132,8 @@
     "lastPrice": 1190
   },
   "oct-eze-bsb|2026-10-09||gol": {
-    "lastSentAt": "2026-07-31T05:20:11.016Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-02T20:41:37.309Z",
+    "lastPrice": 1190
   },
   "oct-eze-gyn|2026-10-01||gol": {
     "lastSentAt": "2026-07-23T05:05:23.120Z",
@@ -1388,7 +1388,7 @@
     "lastPrice": 3537
   },
   "scl-gyn|2027-01-20|2027-01-30|gol": {
-    "lastSentAt": "2026-08-01T15:02:27.179Z",
+    "lastSentAt": "2026-08-02T20:41:37.309Z",
     "lastPrice": 3037
   },
   "scl-gyn|2027-01-21|2027-01-31|gol": {
@@ -2516,7 +2516,7 @@
     "lastPrice": 3494
   },
   "scl-gyn|2027-01-12|2027-01-22|gol": {
-    "lastSentAt": "2026-08-01T15:02:27.179Z",
+    "lastSentAt": "2026-08-02T20:41:37.309Z",
     "lastPrice": 3301
   },
   "scl-gyn|2027-01-14|2027-01-24|gol": {

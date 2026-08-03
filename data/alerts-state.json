@@ -320,20 +320,20 @@
     "lastPrice": 3474
   },
   "oct-aep-bsb|2026-10-01||gol": {
-    "lastSentAt": "2026-07-31T10:29:26.180Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-03T05:17:11.026Z",
+    "lastPrice": 1190
   },
   "oct-aep-bsb|2026-10-06||gol": {
-    "lastSentAt": "2026-07-31T10:29:26.180Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-03T05:17:11.026Z",
+    "lastPrice": 1190
   },
   "oct-aep-bsb|2026-10-08||gol": {
-    "lastSentAt": "2026-07-31T10:29:26.180Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-03T05:17:11.026Z",
+    "lastPrice": 1190
   },
   "oct-aep-bsb|2026-10-10||gol": {
-    "lastSentAt": "2026-07-31T10:29:26.180Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-03T05:17:11.026Z",
+    "lastPrice": 1190
   },
   "luq-bue|2027-01-01|2027-01-11|aerolineas": {
     "lastSentAt": "2026-08-02T22:18:25.766Z",
@@ -940,16 +940,16 @@
     "lastPrice": 1109
   },
   "oct-aep-bsb|2026-10-04||gol": {
-    "lastSentAt": "2026-07-31T10:29:26.180Z",
-    "lastPrice": 1099
+    "lastSentAt": "2026-08-03T05:17:11.026Z",
+    "lastPrice": 1100
   },
   "oct-aep-bsb|2026-10-05||gol": {
-    "lastSentAt": "2026-07-31T10:29:26.180Z",
-    "lastPrice": 1099
+    "lastSentAt": "2026-08-03T05:17:11.026Z",
+    "lastPrice": 1100
   },
   "oct-aep-bsb|2026-10-07||gol": {
-    "lastSentAt": "2026-07-31T10:29:26.180Z",
-    "lastPrice": 1099
+    "lastSentAt": "2026-08-03T05:17:11.026Z",
+    "lastPrice": 1100
   },
   "oct-aep-gyn|2026-10-02||gol": {
     "lastSentAt": "2026-07-23T05:05:23.120Z",
@@ -1756,8 +1756,8 @@
     "lastPrice": 1460
   },
   "bue-gyn|2026-12-18|2026-12-28|googleflights": {
-    "lastSentAt": "2026-08-01T05:24:24.279Z",
-    "lastPrice": 3550
+    "lastSentAt": "2026-08-03T05:17:11.026Z",
+    "lastPrice": 3546
   },
   "bue-aep-gyn|2026-12-18|2026-12-28|googleflights": {
     "lastSentAt": "2026-07-22T05:17:12.764Z",
@@ -2263,10 +2263,6 @@
     "lastSentAt": "2026-07-12T14:53:41.334Z",
     "lastPrice": 3034
   },
-  "jul-aep-gyn|2026-08-02||gol": {
-    "lastSentAt": "2026-07-12T20:49:14.746Z",
-    "lastPrice": 1523
-  },
   "bue-aep-gyn|2026-12-18|2026-12-28|aerolineas": {
     "lastSentAt": "2026-07-12T22:14:22.454Z",
     "lastPrice": 3223
@@ -2300,8 +2296,8 @@
     "lastPrice": 1668
   },
   "oct-aep-bsb|2026-10-03||gol": {
-    "lastSentAt": "2026-07-31T10:29:26.180Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-03T05:17:11.026Z",
+    "lastPrice": 1190
   },
   "bue-aep-gyn|2027-02-27|2027-03-09|gol": {
     "lastSentAt": "2026-08-01T15:02:27.179Z",
@@ -2347,10 +2343,6 @@
     "lastSentAt": "2026-07-23T03:57:05.016Z",
     "lastPrice": 3337
   },
-  "jul-eze-gyn|2026-08-02||gol": {
-    "lastSentAt": "2026-07-17T20:46:21.004Z",
-    "lastPrice": 1756
-  },
   "oct-aep-bsb|2026-10-09||gol": {
     "lastSentAt": "2026-07-30T21:11:38.397Z",
     "lastPrice": 1200
@@ -2387,10 +2379,6 @@
     "lastSentAt": "2026-07-15T20:55:50.129Z",
     "lastPrice": 1420
   },
-  "jul-aep-bsb|2026-08-02||gol": {
-    "lastSentAt": "2026-07-15T20:55:50.129Z",
-    "lastPrice": 1420
-  },
   "jul-aep-bsb|2026-08-06||gol": {
     "lastSentAt": "2026-07-15T20:55:50.129Z",
     "lastPrice": 1423
@@ -2406,10 +2394,6 @@
   "jul-eze-bsb|2026-08-08||gol": {
     "lastSentAt": "2026-07-15T20:55:50.129Z",
     "lastPrice": 1422
-  },
-  "jul-eze-bsb|2026-08-02||gol": {
-    "lastSentAt": "2026-07-15T20:55:50.129Z",
-    "lastPrice": 1558
   },
   "jul-eze-bsb|2026-08-04||gol": {
     "lastSentAt": "2026-07-15T20:55:50.129Z",
@@ -2556,8 +2540,8 @@
     "lastPrice": 1950
   },
   "bue-aep-bsb|2026-12-18|2026-12-28|googleflights": {
-    "lastSentAt": "2026-08-01T05:24:24.279Z",
-    "lastPrice": 2683
+    "lastSentAt": "2026-08-03T05:17:11.026Z",
+    "lastPrice": 2681
   },
   "bue-bsb|2027-01-07|2027-01-17|aerolineas": {
     "lastSentAt": "2026-07-31T14:42:36.688Z",

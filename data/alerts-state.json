@@ -524,20 +524,20 @@
     "lastPrice": 1851
   },
   "bue-bsb|2027-01-01|2027-01-11|aerolineas": {
-    "lastSentAt": "2026-08-01T22:22:20.817Z",
+    "lastSentAt": "2026-08-03T15:24:36.946Z",
     "lastPrice": 1847
   },
   "bue-bsb|2027-01-03|2027-01-13|aerolineas": {
-    "lastSentAt": "2026-08-01T22:22:20.817Z",
+    "lastSentAt": "2026-08-03T15:24:36.946Z",
     "lastPrice": 2918
   },
   "bue-bsb|2027-01-04|2027-01-14|aerolineas": {
-    "lastSentAt": "2026-08-01T22:22:20.817Z",
+    "lastSentAt": "2026-08-03T15:24:36.946Z",
     "lastPrice": 2320
   },
   "bue-bsb|2027-01-05|2027-01-15|aerolineas": {
-    "lastSentAt": "2026-08-01T22:22:20.817Z",
-    "lastPrice": 3070
+    "lastSentAt": "2026-08-03T15:24:36.946Z",
+    "lastPrice": 2320
   },
   "bue-bsb|2027-01-06|2027-01-16|aerolineas": {
     "lastSentAt": "2026-07-15T08:44:16.110Z",
@@ -1952,7 +1952,7 @@
     "lastPrice": 1724
   },
   "bue-bsb|2027-01-02|2027-01-12|aerolineas": {
-    "lastSentAt": "2026-08-01T22:22:20.817Z",
+    "lastSentAt": "2026-08-03T15:24:36.946Z",
     "lastPrice": 3341
   },
   "bue-bsb|2027-01-23|2027-02-02|aerolineas": {

@@ -1132,8 +1132,8 @@
     "lastPrice": 1189
   },
   "oct-eze-bsb|2026-10-09||gol": {
-    "lastSentAt": "2026-08-03T20:54:04.977Z",
-    "lastPrice": 1190
+    "lastSentAt": "2026-08-04T21:15:49.437Z",
+    "lastPrice": 1189
   },
   "oct-eze-gyn|2026-10-01||gol": {
     "lastSentAt": "2026-07-23T05:05:23.120Z",
@@ -1388,8 +1388,8 @@
     "lastPrice": 3537
   },
   "scl-gyn|2027-01-20|2027-01-30|gol": {
-    "lastSentAt": "2026-08-03T20:54:04.977Z",
-    "lastPrice": 3037
+    "lastSentAt": "2026-08-04T21:15:49.437Z",
+    "lastPrice": 3033
   },
   "scl-gyn|2027-01-21|2027-01-31|gol": {
     "lastSentAt": "2026-07-22T05:17:12.764Z",
@@ -2336,8 +2336,8 @@
     "lastPrice": 3228
   },
   "oct-aep-bsb|2026-10-09||gol": {
-    "lastSentAt": "2026-08-03T20:54:04.977Z",
-    "lastPrice": 1190
+    "lastSentAt": "2026-08-04T21:15:49.437Z",
+    "lastPrice": 1189
   },
   "oct-eze-bsb|2026-10-10||gol": {
     "lastSentAt": "2026-07-29T15:57:33.519Z",
@@ -2464,8 +2464,8 @@
     "lastPrice": 3917
   },
   "scl-gyn|2026-12-18|2026-12-28|gol": {
-    "lastSentAt": "2026-07-28T05:11:13.745Z",
-    "lastPrice": 3315
+    "lastSentAt": "2026-08-04T21:15:49.437Z",
+    "lastPrice": 1580
   },
   "scl-gyn|2026-12-28|2027-01-07|gol": {
     "lastSentAt": "2026-07-28T05:11:13.745Z",
@@ -2488,8 +2488,8 @@
     "lastPrice": 3494
   },
   "scl-gyn|2027-01-12|2027-01-22|gol": {
-    "lastSentAt": "2026-08-03T20:54:04.977Z",
-    "lastPrice": 3301
+    "lastSentAt": "2026-08-04T21:15:49.437Z",
+    "lastPrice": 3297
   },
   "scl-gyn|2027-01-14|2027-01-24|gol": {
     "lastSentAt": "2026-07-20T21:13:34.236Z",
@@ -2596,16 +2596,16 @@
     "lastPrice": 3958
   },
   "scl-gyn|2026-12-20|2026-12-30|gol": {
-    "lastSentAt": "2026-07-28T05:11:13.745Z",
-    "lastPrice": 2921
+    "lastSentAt": "2026-08-04T21:15:49.437Z",
+    "lastPrice": 1452
   },
   "scl-gyn|2027-01-11|2027-01-21|gol": {
     "lastSentAt": "2026-08-04T05:14:15.199Z",
     "lastPrice": 3297
   },
   "scl-gyn|2026-12-19|2026-12-29|gol": {
-    "lastSentAt": "2026-07-28T16:00:56.524Z",
-    "lastPrice": 3443
+    "lastSentAt": "2026-08-04T21:15:49.437Z",
+    "lastPrice": 1580
   },
   "bue-aep-gyn|2027-01-04|2027-01-14|aerolineas": {
     "lastSentAt": "2026-07-30T14:41:36.587Z",
@@ -2734,5 +2734,9 @@
   "bue-aep-gyn|2027-01-31|2027-02-10|gol": {
     "lastSentAt": "2026-08-01T05:24:24.279Z",
     "lastPrice": 3569
+  },
+  "scl-gyn|2026-12-21|2026-12-31|gol": {
+    "lastSentAt": "2026-08-04T21:15:49.437Z",
+    "lastPrice": 1844
   }
 }

@@ -12,8 +12,8 @@
     "lastPrice": 2931
   },
   "bue-aep-bsb|2027-01-04|2027-01-14|aerolineas": {
-    "lastSentAt": "2026-08-07T00:20:57.349Z",
-    "lastPrice": 2337
+    "lastSentAt": "2026-08-08T21:51:57.013Z",
+    "lastPrice": 3988
   },
   "bue-aep-bsb|2027-01-05|2027-01-15|aerolineas": {
     "lastSentAt": "2026-08-07T10:22:01.546Z",
@@ -532,8 +532,8 @@
     "lastPrice": 2925
   },
   "bue-bsb|2027-01-04|2027-01-14|aerolineas": {
-    "lastSentAt": "2026-08-08T07:24:48.526Z",
-    "lastPrice": 2925
+    "lastSentAt": "2026-08-08T21:51:57.013Z",
+    "lastPrice": 2326
   },
   "bue-bsb|2027-01-05|2027-01-15|aerolineas": {
     "lastSentAt": "2026-08-08T09:59:38.784Z",
@@ -668,8 +668,8 @@
     "lastPrice": 2097
   },
   "bue-gyn|2026-12-29|2027-01-08|aerolineas": {
-    "lastSentAt": "2026-08-05T03:39:36.372Z",
-    "lastPrice": 2294
+    "lastSentAt": "2026-08-08T21:51:57.013Z",
+    "lastPrice": 4069
   },
   "bue-gyn|2026-12-30|2027-01-09|aerolineas": {
     "lastSentAt": "2026-08-05T03:39:36.372Z",
@@ -820,8 +820,8 @@
     "lastPrice": 2096
   },
   "bue-aep-gyn|2026-12-29|2027-01-08|aerolineas": {
-    "lastSentAt": "2026-08-07T10:22:01.546Z",
-    "lastPrice": 2893
+    "lastSentAt": "2026-08-08T21:51:57.013Z",
+    "lastPrice": 4069
   },
   "bue-aep-gyn|2026-12-30|2027-01-09|aerolineas": {
     "lastSentAt": "2026-08-07T10:22:01.546Z",
@@ -2280,8 +2280,8 @@
     "lastPrice": 2895
   },
   "bue-gyn|2027-01-04|2027-01-14|aerolineas": {
-    "lastSentAt": "2026-08-07T00:20:57.349Z",
-    "lastPrice": 3946
+    "lastSentAt": "2026-08-08T21:51:57.013Z",
+    "lastPrice": 3927
   },
   "bue-gyn|2027-01-05|2027-01-15|aerolineas": {
     "lastSentAt": "2026-08-05T03:39:36.372Z",
@@ -2560,8 +2560,8 @@
     "lastPrice": 1580
   },
   "bue-aep-gyn|2027-01-04|2027-01-14|aerolineas": {
-    "lastSentAt": "2026-08-07T10:22:01.546Z",
-    "lastPrice": 2293
+    "lastSentAt": "2026-08-08T21:51:57.013Z",
+    "lastPrice": 3927
   },
   "bue-aep-bsb|2027-01-07|2027-01-17|aerolineas": {
     "lastSentAt": "2026-07-31T14:42:36.688Z",

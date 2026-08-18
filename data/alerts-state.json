@@ -1184,12 +1184,12 @@
     "lastPrice": 2111
   },
   "bue-bsb|2027-01-22|2027-02-01|gol": {
-    "lastSentAt": "2026-08-17T03:08:59.710Z",
-    "lastPrice": 3335
+    "lastSentAt": "2026-08-18T08:14:00.943Z",
+    "lastPrice": 3266
   },
   "bue-bsb|2027-01-23|2027-02-02|gol": {
-    "lastSentAt": "2026-08-17T03:08:59.710Z",
-    "lastPrice": 3335
+    "lastSentAt": "2026-08-18T08:14:00.943Z",
+    "lastPrice": 3265
   },
   "bue-bsb|2027-01-25|2027-02-04|gol": {
     "lastSentAt": "2026-08-05T20:54:46.509Z",
@@ -2248,8 +2248,8 @@
     "lastPrice": 2617
   },
   "scl-bsb|2026-12-18|2026-12-28|googleflights": {
-    "lastSentAt": "2026-07-29T05:14:20.564Z",
-    "lastPrice": 2041
+    "lastSentAt": "2026-08-18T08:14:00.943Z",
+    "lastPrice": 2177
   },
   "scl-gyn|2026-12-18|2026-12-28|googleflights": {
     "lastSentAt": "2026-07-12T05:24:12.860Z",
@@ -2404,8 +2404,8 @@
     "lastPrice": 3931
   },
   "scl-gyn|2026-12-18|2026-12-28|gol": {
-    "lastSentAt": "2026-08-04T21:15:49.437Z",
-    "lastPrice": 1580
+    "lastSentAt": "2026-08-18T08:14:00.943Z",
+    "lastPrice": 1490
   },
   "scl-gyn|2026-12-28|2027-01-07|gol": {
     "lastSentAt": "2026-08-05T20:54:46.509Z",
@@ -2536,16 +2536,16 @@
     "lastPrice": 2106
   },
   "scl-gyn|2026-12-20|2026-12-30|gol": {
-    "lastSentAt": "2026-08-04T21:15:49.437Z",
-    "lastPrice": 1452
+    "lastSentAt": "2026-08-18T08:14:00.943Z",
+    "lastPrice": 1670
   },
   "scl-gyn|2027-01-11|2027-01-21|gol": {
     "lastSentAt": "2026-08-05T20:54:46.509Z",
     "lastPrice": 1856
   },
   "scl-gyn|2026-12-19|2026-12-29|gol": {
-    "lastSentAt": "2026-08-04T21:15:49.437Z",
-    "lastPrice": 1580
+    "lastSentAt": "2026-08-18T08:14:00.943Z",
+    "lastPrice": 1941
   },
   "bue-aep-gyn|2027-01-04|2027-01-14|aerolineas": {
     "lastSentAt": "2026-08-08T21:51:57.013Z",
@@ -2676,8 +2676,8 @@
     "lastPrice": 3569
   },
   "scl-gyn|2026-12-21|2026-12-31|gol": {
-    "lastSentAt": "2026-08-04T21:15:49.437Z",
-    "lastPrice": 1844
+    "lastSentAt": "2026-08-18T08:14:00.943Z",
+    "lastPrice": 1542
   },
   "bue-gyn|2027-02-26|2027-03-08|gol": {
     "lastSentAt": "2026-08-13T04:03:43.897Z",

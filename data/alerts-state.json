@@ -240,8 +240,8 @@
     "lastPrice": 3531
   },
   "bue-bsb|2027-02-01|2027-02-11|aerolineas": {
-    "lastSentAt": "2026-08-18T13:15:56.248Z",
-    "lastPrice": 2031
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1892
   },
   "bue-bsb|2027-02-12|2027-02-22|aerolineas": {
     "lastSentAt": "2026-08-07T16:17:54.618Z",
@@ -268,8 +268,8 @@
     "lastPrice": 1892
   },
   "bue-aep-bsb|2027-02-03|2027-02-13|aerolineas": {
-    "lastSentAt": "2026-08-18T15:59:56.106Z",
-    "lastPrice": 2309
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 2170
   },
   "bue-aep-bsb|2027-02-04|2027-02-14|aerolineas": {
     "lastSentAt": "2026-08-18T15:59:56.106Z",
@@ -620,8 +620,8 @@
     "lastPrice": 3632
   },
   "bue-aep-bsb|2027-01-21|2027-01-31|aerolineas": {
-    "lastSentAt": "2026-08-03T17:36:26.229Z",
-    "lastPrice": 3500
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 3443
   },
   "bue-aep-bsb|2027-02-09|2027-02-19|aerolineas": {
     "lastSentAt": "2026-08-04T17:13:58.839Z",
@@ -688,8 +688,8 @@
     "lastPrice": 3583
   },
   "bue-gyn|2027-01-21|2027-01-31|aerolineas": {
-    "lastSentAt": "2026-08-03T17:36:26.229Z",
-    "lastPrice": 3439
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 3381
   },
   "bue-gyn|2027-01-22|2027-02-01|aerolineas": {
     "lastSentAt": "2026-08-08T09:59:38.784Z",
@@ -844,8 +844,8 @@
     "lastPrice": 3585
   },
   "bue-aep-gyn|2027-01-21|2027-01-31|aerolineas": {
-    "lastSentAt": "2026-08-03T17:36:26.229Z",
-    "lastPrice": 3439
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 3381
   },
   "bue-aep-gyn|2027-01-22|2027-02-01|aerolineas": {
     "lastSentAt": "2026-08-13T16:20:43.315Z",
@@ -1764,12 +1764,12 @@
     "lastPrice": 3367
   },
   "bue-aep-bsb|2027-02-19|2027-03-01|aerolineas": {
-    "lastSentAt": "2026-08-17T10:03:39.570Z",
-    "lastPrice": 2162
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1752
   },
   "bue-aep-bsb|2027-02-17|2027-02-27|aerolineas": {
-    "lastSentAt": "2026-07-25T08:30:54.612Z",
-    "lastPrice": 3474
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 3442
   },
   "bue-aep-bsb|2027-02-18|2027-02-28|aerolineas": {
     "lastSentAt": "2026-08-03T17:36:26.229Z",
@@ -1780,8 +1780,8 @@
     "lastPrice": 1875
   },
   "bue-aep-bsb|2027-02-21|2027-03-03|aerolineas": {
-    "lastSentAt": "2026-08-17T10:03:39.570Z",
-    "lastPrice": 1883
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1752
   },
   "bue-aep-bsb|2027-02-22|2027-03-04|aerolineas": {
     "lastSentAt": "2026-08-17T10:03:39.570Z",
@@ -1808,8 +1808,8 @@
     "lastPrice": 1883
   },
   "bue-aep-bsb|2027-02-28|2027-03-10|aerolineas": {
-    "lastSentAt": "2026-08-17T10:03:39.570Z",
-    "lastPrice": 1883
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1752
   },
   "bue-bsb|2027-01-20|2027-01-30|gol": {
     "lastSentAt": "2026-08-17T03:08:59.710Z",
@@ -2000,8 +2000,8 @@
     "lastPrice": 1875
   },
   "bue-bsb|2027-02-21|2027-03-03|aerolineas": {
-    "lastSentAt": "2026-08-17T07:29:49.290Z",
-    "lastPrice": 1883
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1752
   },
   "bue-bsb|2027-02-22|2027-03-04|aerolineas": {
     "lastSentAt": "2026-08-18T09:56:10.174Z",
@@ -2012,8 +2012,8 @@
     "lastPrice": 1752
   },
   "bue-bsb|2027-02-24|2027-03-06|aerolineas": {
-    "lastSentAt": "2026-08-17T07:29:49.290Z",
-    "lastPrice": 1883
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1752
   },
   "bue-bsb|2027-02-25|2027-03-07|aerolineas": {
     "lastSentAt": "2026-08-18T15:59:56.106Z",
@@ -2028,8 +2028,8 @@
     "lastPrice": 1875
   },
   "bue-bsb|2027-02-28|2027-03-10|aerolineas": {
-    "lastSentAt": "2026-08-17T07:29:49.290Z",
-    "lastPrice": 1883
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1752
   },
   "luq-bue|2027-01-22|2027-02-01|aerolineas": {
     "lastSentAt": "2026-08-13T08:03:50.892Z",
@@ -2096,16 +2096,16 @@
     "lastPrice": 2175
   },
   "bue-aep-bsb|2027-01-24|2027-02-03|aerolineas": {
-    "lastSentAt": "2026-08-18T15:59:56.106Z",
-    "lastPrice": 2170
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1892
   },
   "bue-aep-bsb|2027-01-25|2027-02-04|aerolineas": {
-    "lastSentAt": "2026-08-18T15:59:56.106Z",
-    "lastPrice": 2031
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1892
   },
   "bue-aep-bsb|2027-01-26|2027-02-05|aerolineas": {
-    "lastSentAt": "2026-08-18T15:59:56.106Z",
-    "lastPrice": 2031
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1892
   },
   "bue-aep-bsb|2027-01-27|2027-02-06|aerolineas": {
     "lastSentAt": "2026-08-18T15:59:56.106Z",
@@ -2116,8 +2116,8 @@
     "lastPrice": 1892
   },
   "bue-aep-bsb|2027-01-29|2027-02-08|aerolineas": {
-    "lastSentAt": "2026-08-18T15:59:56.106Z",
-    "lastPrice": 2031
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 1892
   },
   "bue-aep-bsb|2027-01-30|2027-02-09|aerolineas": {
     "lastSentAt": "2026-08-18T15:59:56.106Z",
@@ -2308,8 +2308,8 @@
     "lastPrice": 2990
   },
   "bue-bsb|2027-02-17|2027-02-27|aerolineas": {
-    "lastSentAt": "2026-07-16T11:20:39.547Z",
-    "lastPrice": 3478
+    "lastSentAt": "2026-08-18T19:04:16.439Z",
+    "lastPrice": 3442
   },
   "bue-bsb|2027-02-18|2027-02-28|aerolineas": {
     "lastSentAt": "2026-08-03T17:36:26.229Z",

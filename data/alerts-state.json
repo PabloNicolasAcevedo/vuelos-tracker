@@ -948,8 +948,8 @@
     "lastPrice": 1266
   },
   "oct-aep-bsb|2026-10-07||gol": {
-    "lastSentAt": "2026-08-08T08:43:50.468Z",
-    "lastPrice": 1266
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1350
   },
   "oct-aep-gyn|2026-10-02||gol": {
     "lastSentAt": "2026-07-23T05:05:23.120Z",
@@ -1104,32 +1104,32 @@
     "lastPrice": 1534
   },
   "oct-eze-bsb|2026-10-03||gol": {
-    "lastSentAt": "2026-08-04T16:13:15.029Z",
-    "lastPrice": 1188
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1441
   },
   "oct-eze-bsb|2026-10-01||gol": {
-    "lastSentAt": "2026-08-04T16:13:15.029Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1442
   },
   "oct-eze-bsb|2026-10-04||gol": {
-    "lastSentAt": "2026-08-04T16:13:15.029Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1442
   },
   "oct-eze-bsb|2026-10-05||gol": {
-    "lastSentAt": "2026-08-04T16:13:15.029Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1442
   },
   "oct-eze-bsb|2026-10-06||gol": {
-    "lastSentAt": "2026-08-04T16:13:15.029Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1442
   },
   "oct-eze-bsb|2026-10-07||gol": {
-    "lastSentAt": "2026-08-04T16:13:15.029Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1442
   },
   "oct-eze-bsb|2026-10-08||gol": {
-    "lastSentAt": "2026-08-04T16:13:15.029Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1442
   },
   "oct-eze-bsb|2026-10-09||gol": {
     "lastSentAt": "2026-08-04T21:15:49.437Z",
@@ -1184,12 +1184,12 @@
     "lastPrice": 2111
   },
   "bue-bsb|2027-01-22|2027-02-01|gol": {
-    "lastSentAt": "2026-08-18T08:14:00.943Z",
-    "lastPrice": 3266
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 2973
   },
   "bue-bsb|2027-01-23|2027-02-02|gol": {
-    "lastSentAt": "2026-08-18T08:14:00.943Z",
-    "lastPrice": 3265
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 2972
   },
   "bue-bsb|2027-01-25|2027-02-04|gol": {
     "lastSentAt": "2026-08-05T20:54:46.509Z",
@@ -1216,12 +1216,12 @@
     "lastPrice": 4269
   },
   "bue-bsb|2027-02-02|2027-02-12|gol": {
-    "lastSentAt": "2026-08-14T09:03:45.278Z",
-    "lastPrice": 3822
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3396
   },
   "bue-bsb|2027-02-03|2027-02-13|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2484
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 4141
   },
   "bue-bsb|2027-02-04|2027-02-14|gol": {
     "lastSentAt": "2026-08-05T20:54:46.509Z",
@@ -1252,24 +1252,24 @@
     "lastPrice": 3235
   },
   "bue-bsb|2027-02-12|2027-02-22|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2602
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3396
   },
   "bue-bsb|2027-02-13|2027-02-23|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2484
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 2883
   },
   "bue-bsb|2027-02-14|2027-02-24|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2550
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3218
   },
   "bue-bsb|2027-02-16|2027-02-26|gol": {
     "lastSentAt": "2026-08-05T20:54:46.509Z",
     "lastPrice": 2403
   },
   "bue-bsb|2027-02-17|2027-02-27|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2132
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3217
   },
   "bue-bsb|2027-02-11|2027-02-21|gol": {
     "lastSentAt": "2026-08-05T20:54:46.509Z",
@@ -1280,40 +1280,40 @@
     "lastPrice": 2326
   },
   "bue-bsb|2027-02-18|2027-02-28|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2250
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3218
   },
   "bue-bsb|2027-02-20|2027-03-02|gol": {
     "lastSentAt": "2026-08-05T20:54:46.509Z",
     "lastPrice": 2111
   },
   "bue-bsb|2027-02-22|2027-03-04|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2352
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 2884
   },
   "bue-bsb|2027-02-23|2027-03-05|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2208
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 2884
   },
   "bue-bsb|2027-02-24|2027-03-06|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2208
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 2883
   },
   "bue-bsb|2027-02-25|2027-03-07|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2249
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 2884
   },
   "bue-bsb|2027-02-26|2027-03-08|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2362
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 2884
   },
   "bue-bsb|2027-02-27|2027-03-09|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2035
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 2883
   },
   "bue-bsb|2027-02-28|2027-03-10|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2035
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 2884
   },
   "scl-gyn|2027-02-19|2027-03-01|gol": {
     "lastSentAt": "2026-08-10T20:27:51.942Z",
@@ -1828,28 +1828,28 @@
     "lastPrice": 2298
   },
   "bue-bsb|2027-01-05|2027-01-15|gol": {
-    "lastSentAt": "2026-08-17T03:08:59.710Z",
-    "lastPrice": 1823
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3831
   },
   "bue-bsb|2027-01-06|2027-01-16|gol": {
-    "lastSentAt": "2026-08-17T03:08:59.710Z",
-    "lastPrice": 2335
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3768
   },
   "bue-bsb|2027-01-07|2027-01-17|gol": {
     "lastSentAt": "2026-08-17T03:08:59.710Z",
     "lastPrice": 2224
   },
   "bue-bsb|2027-01-08|2027-01-18|gol": {
-    "lastSentAt": "2026-08-17T03:08:59.710Z",
-    "lastPrice": 2224
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3625
   },
   "bue-bsb|2027-01-09|2027-01-19|gol": {
     "lastSentAt": "2026-08-17T03:08:59.710Z",
     "lastPrice": 1921
   },
   "bue-bsb|2027-01-10|2027-01-20|gol": {
-    "lastSentAt": "2026-08-17T03:08:59.710Z",
-    "lastPrice": 2224
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3785
   },
   "bue-bsb|2027-01-11|2027-01-21|gol": {
     "lastSentAt": "2026-08-17T03:08:59.710Z",
@@ -1860,16 +1860,16 @@
     "lastPrice": 1983
   },
   "bue-bsb|2027-01-13|2027-01-23|gol": {
-    "lastSentAt": "2026-08-17T03:08:59.710Z",
-    "lastPrice": 2335
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3484
   },
   "bue-bsb|2027-01-14|2027-01-24|gol": {
     "lastSentAt": "2026-08-17T03:08:59.710Z",
     "lastPrice": 1983
   },
   "bue-bsb|2027-01-15|2027-01-25|gol": {
-    "lastSentAt": "2026-08-17T03:08:59.710Z",
-    "lastPrice": 2559
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3602
   },
   "bue-bsb|2027-01-16|2027-01-26|gol": {
     "lastSentAt": "2026-08-17T03:08:59.710Z",
@@ -2184,36 +2184,36 @@
     "lastPrice": 612
   },
   "bue-bsb|2026-12-18|2026-12-28|gol": {
-    "lastSentAt": "2026-08-17T08:46:16.633Z",
-    "lastPrice": 1626
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1442
   },
   "bue-bsb|2026-12-19|2026-12-29|gol": {
-    "lastSentAt": "2026-08-17T08:46:16.633Z",
-    "lastPrice": 1625
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1530
   },
   "bue-bsb|2026-12-20|2026-12-30|gol": {
-    "lastSentAt": "2026-08-17T08:46:16.633Z",
-    "lastPrice": 1626
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1442
   },
   "bue-bsb|2026-12-21|2026-12-31|gol": {
-    "lastSentAt": "2026-08-17T08:46:16.633Z",
-    "lastPrice": 1709
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1531
   },
   "bue-bsb|2026-12-22|2027-01-01|gol": {
     "lastSentAt": "2026-08-17T20:08:21.043Z",
     "lastPrice": 1654
   },
   "bue-bsb|2026-12-23|2027-01-02|gol": {
-    "lastSentAt": "2026-08-17T20:08:21.043Z",
-    "lastPrice": 1950
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3935
   },
   "bue-bsb|2026-12-24|2027-01-03|gol": {
     "lastSentAt": "2026-08-17T20:08:21.043Z",
     "lastPrice": 1804
   },
   "bue-bsb|2026-12-25|2027-01-04|gol": {
-    "lastSentAt": "2026-08-17T20:08:21.043Z",
-    "lastPrice": 2777
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 4555
   },
   "bue-bsb|2026-12-26|2027-01-05|gol": {
     "lastSentAt": "2026-08-17T20:08:21.043Z",
@@ -2236,16 +2236,16 @@
     "lastPrice": 3135
   },
   "bue-bsb|2026-12-31|2027-01-10|gol": {
-    "lastSentAt": "2026-08-17T20:08:21.043Z",
-    "lastPrice": 2805
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 4532
   },
   "bue-bsb|2027-02-05|2027-02-15|gol": {
     "lastSentAt": "2026-08-05T20:54:46.509Z",
     "lastPrice": 3439
   },
   "bue-bsb|2027-02-15|2027-02-25|gol": {
-    "lastSentAt": "2026-08-05T20:54:46.509Z",
-    "lastPrice": 2617
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 3113
   },
   "scl-bsb|2026-12-18|2026-12-28|googleflights": {
     "lastSentAt": "2026-08-18T08:14:00.943Z",
@@ -2316,12 +2316,12 @@
     "lastPrice": 3228
   },
   "oct-aep-bsb|2026-10-09||gol": {
-    "lastSentAt": "2026-08-04T21:15:49.437Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1350
   },
   "oct-eze-bsb|2026-10-10||gol": {
-    "lastSentAt": "2026-07-29T15:57:33.519Z",
-    "lastPrice": 1593
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1653
   },
   "bue-aep-gyn|2027-01-13|2027-01-23|aerolineas": {
     "lastSentAt": "2026-07-28T17:01:02.040Z",
@@ -2344,8 +2344,8 @@
     "lastPrice": 2121
   },
   "oct-eze-bsb|2026-10-02||gol": {
-    "lastSentAt": "2026-08-04T16:13:15.029Z",
-    "lastPrice": 1189
+    "lastSentAt": "2026-08-19T14:28:52.706Z",
+    "lastPrice": 1442
   },
   "bue-gyn|2027-02-23|2027-03-05|gol": {
     "lastSentAt": "2026-08-13T04:03:43.897Z",

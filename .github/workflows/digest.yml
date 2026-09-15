@@ -1,12 +1,17 @@
 name: Daily digest email
 
 on:
-  schedule:
-    # Once a day at ~06:13 ART: the full summary email (dashboard + best price
-    # per route) as a safety net while the alert system is being calibrated.
-    # No scraping and no Playwright -- it rebuilds the summaries from the
-    # already-committed history, so the job takes ~1 minute.
-    - cron: "13 9 * * *"
+  # PAUSADO (2026-09-15): el tracker cumplio su proposito -- todos los viajes
+  # ya estan comprados, asi que los mails pasaron a ser spam. Se corta el
+  # schedule y queda solo el disparo manual; para revivirlo, descomentar el
+  # bloque de abajo.
+  #
+  #   schedule:
+  #     # Once a day at ~06:13 ART: the full summary email (dashboard + best price
+  #     # per route) as a safety net while the alert system is being calibrated.
+  #     # No scraping and no Playwright -- it rebuilds the summaries from the
+  #     # already-committed history, so the job takes ~1 minute.
+  #     - cron: "13 9 * * *"
   workflow_dispatch: {}
 
 permissions:

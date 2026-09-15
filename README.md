@@ -42,6 +42,13 @@ Cada scraper nuevo se agrega en `scrapers/<sitio>.js` (misma forma que `scrapers
 
 ## Automatización (GitHub Actions)
 
+> **Pausado desde 2026-09-15.** El tracker cumplió su propósito (los viajes ya están
+> comprados), así que se cortaron los `schedule:` de los tres workflows automáticos: no
+> scrapea ni manda mails solo. Los crons quedaron comentados en cada `.yml` y todos
+> conservan `workflow_dispatch`, así que se revive descomentando el bloque (o disparándolo
+> a mano desde *Actions*). El histórico y el sitio de GitHub Pages siguen publicados tal
+> como quedaron.
+
 Tres workflows, todos con jitter aleatorio y minuto corrido (no `:00`) para esquivar la congestión de schedules de GitHub:
 
 - `scrape-aerolineas.yml`: 8 veces por día (cada 3h). Aerolíneas es rápido y de bajo riesgo (intercepta la API pública del calendario flex), así que puede correr seguido.

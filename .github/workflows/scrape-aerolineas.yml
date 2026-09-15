@@ -1,12 +1,17 @@
 name: Scrape flight prices (Aerolineas)
 
 on:
-  schedule:
-    # 8x/day (every 3h). Aerolineas is a short, low-risk job: it deep-links to
-    # the flex-dates calendar and intercepts the public offers API (one call
-    # per month), no form-filling. Minute offset (:13) avoids GitHub's
-    # top-of-the-hour scheduling congestion (see scrape.yml for details).
-    - cron: "13 */3 * * *"
+  # PAUSADO (2026-09-15): el tracker cumplio su proposito -- todos los viajes
+  # ya estan comprados, asi que los mails pasaron a ser spam. Se corta el
+  # schedule y queda solo el disparo manual; para revivirlo, descomentar el
+  # bloque de abajo.
+  #
+  #   schedule:
+  #     # 8x/day (every 3h). Aerolineas is a short, low-risk job: it deep-links to
+  #     # the flex-dates calendar and intercepts the public offers API (one call
+  #     # per month), no form-filling. Minute offset (:13) avoids GitHub's
+  #     # top-of-the-hour scheduling congestion (see scrape.yml for details).
+  #     - cron: "13 */3 * * *"
   workflow_dispatch: {}
 
 permissions:
